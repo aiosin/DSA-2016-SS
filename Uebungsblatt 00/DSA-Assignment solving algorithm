@@ -1,0 +1,40 @@
+DSA-Assignment solving algorithm:
+
+//Java-Pseudocode
+
+void solveAssingment(){
+	Assignment assignment = new Assignment(downloadAssignment());
+
+	for(exercises e: assignment){
+
+		try{
+			e.solve
+		}catch(Exception x){
+
+			e.google(x);
+			e.searchStackOverflow(x);
+
+		}finally{
+			if(e.isSolved == true){
+				break;
+			}else{
+				e.doLater();
+			}
+		}
+
+
+	}
+
+	if(assignment.isFinished == true){
+		uploadToILIAS();
+	}else{
+		finshTasks(assignment.getUnsolvedTasks);
+
+	}
+
+	sleep(getTimeUntilTutorium());
+	attendTutorium();
+
+}
+
+

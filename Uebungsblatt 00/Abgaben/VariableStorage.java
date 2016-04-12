@@ -1,7 +1,9 @@
 package de.unistuttgart.dsass2016.ex00.p2;
 /**
  * 
- * @author zython5
+ * @author 3133783 Wilhelm Buchmüller
+ * @author Daniel Wanner
+ * @author Artur Frenzen
  *
  * @param <T>
  */

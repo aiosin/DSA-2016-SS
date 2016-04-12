@@ -2,9 +2,9 @@ package de.unistuttgart.dsass2016.ex00.p1;
 
 /**
  * 
- * @author Wilhelm Buchmüller 3133783
- * @author Daniel Wanner 
- * @author Artur Frenzen
+ * @author 3133783 Wilhelm Buchmüller 
+ * @author 3149308 Daniel Wanner 
+ * @author 2736424 Artur Frenzen
  *
  */
 public class Calculator implements ICalculator {

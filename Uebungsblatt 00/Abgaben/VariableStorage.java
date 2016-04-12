@@ -2,8 +2,8 @@ package de.unistuttgart.dsass2016.ex00.p2;
 /**
  * 
  * @author 3133783 Wilhelm Buchmüller
- * @author Daniel Wanner
- * @author Artur Frenzen
+ * @author 3149308 Daniel Wanner
+ * @author 2736424 Artur Frenzen
  *
  * @param <T>
  */

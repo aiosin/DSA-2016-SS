@@ -25,7 +25,7 @@ Binäre Suche:
 [12] [20] [29] [33] [38] [42] [47] [48] [49] [52] [62] [68] [71] [84] [92]
 (0)  (1)  (2)  (3)  (4)  (5)  (6)  (7)  (8)  (9) (10)  (11) (12) (13) (14)
 
-Aufteilen des Arrays in zwei teile (in der mitte +-1)
+'Suchoperation 1':Aufteilen des Arrays in zwei teile (in der mitte +-1)
 
 [12] [20] [29] [33] [38] [42] [47] || [48] [49] [52] [62] [68] [71] [84] [92]
 (0)  (1)  (2)  (3)  (4)  (5)  (6)  || (7)  (8)  (9) (10)  (11) (12) (13) (14)
@@ -42,3 +42,7 @@ Aufteilen des Arrays in zwei Hälten
 
 [52] befindet sich jetzt auf der linken Seite
 
+
+b)
+
+binäre suche funktioniert nicht weil bei bei position 5 die 39 nicht im array sortiert ist.

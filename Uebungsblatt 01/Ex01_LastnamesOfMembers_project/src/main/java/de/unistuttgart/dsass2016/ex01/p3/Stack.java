@@ -1,30 +1,29 @@
 package de.unistuttgart.dsass2016.ex01.p3;
 
+import java.util.LinkedList;
 
 public class Stack<T> implements IStack<T> {
-
+	//usage of java.util.LinkedList ist not illegal by assignment
+	private LinkedList <T> stackList = new LinkedList<T>();
 	@Override
 	public void push(T t) {
-		// TODO Auto-generated method stub
-		
+		stackList.addFirst(t);
 	}
 
 	@Override
 	public T pop() {
-		// TODO Auto-generated method stub
-		return null;
+		return stackList.removeFirst();
 	}
 
 	@Override
 	public T top() {
-		// TODO Auto-generated method stub
-		return null;
+		return stackList.getFirst();
 	}
+	
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return stackList.isEmpty();
 	}
 	
 

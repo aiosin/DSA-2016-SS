@@ -10,26 +10,30 @@ import java.util.LinkedList;
  * @param <T>
  */
 public class Queue<T> implements IQueue<T> {
-	//using linkedlist is not forbidden by assignment
+	//using java.util.Linkedlist is not forbidden by assignment
 	private LinkedList<T> queueList = new LinkedList<T>();
 	@Override
 	public void enqueue(T t) {
+		//adds a new element T to the end of the queue
 		queueList.addLast(t);
 		
 	}
 
 	@Override
 	public T dequeue() {
+		//poll from java.util.LinkedList retrieves and removes the head of the list
 		return queueList.poll();
 	}
 
 	@Override
 	public T front() {
+		//getFirst from the linkedlist
 		return queueList.getFirst();
 	}
 
 	@Override
 	public boolean isEmpty() {
+		//nothing too special here
 		return queueList.isEmpty();
 		
 	}

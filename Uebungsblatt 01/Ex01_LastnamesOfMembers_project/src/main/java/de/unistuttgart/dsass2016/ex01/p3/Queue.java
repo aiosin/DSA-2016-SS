@@ -1,30 +1,37 @@
 package de.unistuttgart.dsass2016.ex01.p3;
 
+import java.util.LinkedList;
 
+//TODO: dont fuck up martikelnummern
+/**
+ * 
+ * @author zython5
+ *
+ * @param <T>
+ */
 public class Queue<T> implements IQueue<T> {
-
+	//using linkedlist is not forbidden by assignment
+	private LinkedList<T> queueList = new LinkedList<T>();
 	@Override
 	public void enqueue(T t) {
-		// TODO Auto-generated method stub
+		queueList.addLast(t);
 		
 	}
 
 	@Override
 	public T dequeue() {
-		// TODO Auto-generated method stub
-		return null;
+		return queueList.poll();
 	}
 
 	@Override
 	public T front() {
-		// TODO Auto-generated method stub
-		return null;
+		return queueList.getFirst();
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return queueList.isEmpty();
+		
 	}
 	
 

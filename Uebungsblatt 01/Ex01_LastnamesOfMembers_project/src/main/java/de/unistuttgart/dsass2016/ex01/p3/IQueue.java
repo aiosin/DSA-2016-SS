@@ -2,6 +2,7 @@ package de.unistuttgart.dsass2016.ex01.p3;
 
 public interface IQueue<T> {
 	
+	
 	/** Enqueues an element */
 	public void enqueue(T t);
 	/** Dequeues the first element */

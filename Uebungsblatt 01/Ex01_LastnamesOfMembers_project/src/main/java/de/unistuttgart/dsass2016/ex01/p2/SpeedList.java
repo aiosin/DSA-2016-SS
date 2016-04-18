@@ -1,7 +1,7 @@
 package de.unistuttgart.dsass2016.ex01.p2;
 
-import java.beans.ConstructorProperties;
-import java.util.*;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class SpeedList<T> implements ISpeedList<T>, Iterable<T> {
 	// TODO: COMMENT THIS SHIT

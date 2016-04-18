@@ -26,5 +26,9 @@ class LinkedList
 public:
 	LinkedList();
 	~LinkedList();
+
+	Node<T>* getRoot();
+
+	
 private:
 };

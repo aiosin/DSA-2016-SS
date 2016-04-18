@@ -1,9 +1,10 @@
 package de.unistuttgart.dsass2016.ex01.p2;
 
+import java.beans.ConstructorProperties;
 import java.util.*;
 
 public class SpeedList<T> implements ISpeedList<T>, Iterable<T> {
-	//TODO: COMMENT THIS SHIT
+	// TODO: COMMENT THIS SHIT
 	private int speedListSize;
 	// add head
 	private Node<T> head;
@@ -53,48 +54,50 @@ public class SpeedList<T> implements ISpeedList<T>, Iterable<T> {
 	public void addLast(T t) {
 		if (head == null) {
 			addFirst(t);
-		}else {
+		} else {
 			Node<T> tmp = head;
-			//TODO: check while loop
-			while(tmp.next != null){
+			// TODO: check while loop
+			while (tmp.next != null) {
 				tmp = tmp.next;
 			}
 			tmp.next = new Node<T>(t, null);
 		}
 	}
-	public T getLast(){
+
+	public T getLast() {
 		if (head == null) {
 			throw new NoSuchElementException();
 		} else {
 			Node<T> tmp = head;
-			while(tmp.next != null){
+			while (tmp.next != null) {
 				tmp = tmp.next;
 			}
 			return tmp.t;
-		}	
+		}
 	}
-	public void flush(){
+
+	public void flush() {
 		this.head = null;
 	}
-	
-	public T get(int index){
+
+	public T get(int index) {
 		if (head == null) {
 			throw new IndexOutOfBoundsException();
 		} else {
-			
+
 			Node<T> tmp = head;
 			for (int i = 0; i < index; i++) {
 				tmp = tmp.next;
 			}
-			
+
 			if (tmp == null) {
 				throw new IndexOutOfBoundsException();
 			}
-			
+
 			return tmp.t;
 		}
 	}
-	
+
 	// TODO: Node finished
 	@SuppressWarnings("hiding")
 	public class Node<T> {
@@ -114,7 +117,32 @@ public class SpeedList<T> implements ISpeedList<T>, Iterable<T> {
 	@Override
 	public Iterator<T> iterator() {
 
-		return null;
+		return new SpeedListIterator();
+	}
+
+	private class SpeedListIterator implements Iterator<T> {
+		private Node<T> nextNode;
+
+		public SpeedListIterator() {
+			nextNode = head;
+		}
+
+		@Override
+		public boolean hasNext() {
+			return nextNode != null;
+		}
+
+		@Override
+		public T next() {
+			if (!hasNext()) {
+				throw new NoSuchElementException();
+			} else {
+				T res = nextNode.t;
+				nextNode = nextNode.next;
+				return res;
+			}
+		}
+
 	}
 
 }

@@ -25,8 +25,37 @@ public class SpeedList<T> implements ISpeedList<T>, Iterable<T> {
 	}
 
 	@Override
+	//TODO: fix and clean up
 	public T getNext8thElementOf(int pos) {
-		return null;
+		try {
+			Node<T> last = head;
+			
+			for(int i = 0; i < pos; i++)
+			{
+				if(last.hasNext())
+				{
+					last = last.getNext();
+				}
+				else
+				{
+					break;
+				}
+			}
+			
+			for (int i = 0; i < 8; i++) {
+				if(last.hasNext())
+				{
+					last = last.getNext();
+				}
+				else
+				{
+					break;
+				}
+			}
+			return last.getData();
+		} catch (NoSuchElementException e) {
+			return null;
+		}
 	}
 
 	public boolean isEmpty() {
@@ -114,6 +143,27 @@ public class SpeedList<T> implements ISpeedList<T>, Iterable<T> {
 			this.t = t;
 			this.next = next;
 
+		}
+		
+		public T getData()
+		{
+			return t;
+		}
+		
+		public Node<T> getNext()
+		{
+			if(next != null)
+			{
+				return next;
+			}
+			else
+			{
+				return null;
+			}
+		}
+		public boolean hasNext()
+		{
+			return next != null;
 		}
 
 	}

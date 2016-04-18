@@ -16,12 +16,12 @@ public class SpeedList<T> implements ISpeedList<T>, Iterable<T> {
 
 	@Override
 	public void prepend(T t) {
-
+		addFirst(t);
 	}
 
 	@Override
 	public T getElementAt(int pos) {
-		return null;
+		return get(pos);
 	}
 
 	@Override
@@ -35,6 +35,7 @@ public class SpeedList<T> implements ISpeedList<T>, Iterable<T> {
 
 	public void addFirst(T t) {
 		head = new Node<T>(t, head);
+		speedListSize++;
 	}
 
 	public T getFirst() {
@@ -48,6 +49,7 @@ public class SpeedList<T> implements ISpeedList<T>, Iterable<T> {
 	public T removeFirst() {
 		T tmp = getFirst();
 		head = head.next;
+		speedListSize--;
 		return tmp;
 	}
 
@@ -62,6 +64,7 @@ public class SpeedList<T> implements ISpeedList<T>, Iterable<T> {
 			}
 			tmp.next = new Node<T>(t, null);
 		}
+		speedListSize++;
 	}
 
 	public T getLast() {
@@ -78,6 +81,7 @@ public class SpeedList<T> implements ISpeedList<T>, Iterable<T> {
 
 	public void flush() {
 		this.head = null;
+		speedListSize = 0;
 	}
 
 	public T get(int index) {

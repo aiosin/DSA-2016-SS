@@ -4,37 +4,29 @@ import java.util.NoSuchElementException;
 
 public class SpeedList<T> implements ISpeedList<T> {
 	private int speedListSize;
-	// add head
 	private Node<T> head;
 
-	@Override
 	/**
 	 * size method of SpeedList, returns the current value of speedListSize
+	 * @return speedListSize
 	 */
 	public int size() {
 		return speedListSize;
 	}
 
-	@Override
 	/**
 	 * inserts a element T at the beginning of the list
-	 * TODO: DONE
+	 * 
 	 */
 	public void prepend(T t) {
 		head = new Node<T>(t, head);
 		speedListSize++;
 	}
 
-	@Override
 	/**
 	 * Returns the element at the specified position in the list
-	 * @param pos 
-	 * The position of the element in the list starting from 0
-	 * 
+	 * @param Position
 	 * @return The specified element in the list
-	 * 
-	 * @throws IndexOutOfBoundsException
-	 *         If the requested element is out of range
 	 */
 	public T getElementAt(int pos) {
 		if (head == null) {
@@ -58,14 +50,8 @@ public class SpeedList<T> implements ISpeedList<T> {
 	/**
 	 * Returns the next 8th element of the specified element in the list
 	 * 
-	 * @param pos
-	 *            The position of the specified element in the list starting
-	 *            from 0
-	 * 
+	 * @param Position
 	 * @return The next 8th element of the specified element
-	 * 
-	 * @throws IndexOutOfBoundsException
-	 *             If the requested element is out of range
 	 */
 	public T getNext8thElementOf(int pos) {
 		try {
@@ -81,44 +67,30 @@ public class SpeedList<T> implements ISpeedList<T> {
 			}
 
 			// then the pointer advances another 8 nodes
-			// TODO: null or NoSuchElementException ?
 			for (int i = 0; i < 8; i++) {
 				if (last.hasNext()) {
 					last = last.getNext();
 				} else {
-					throw new NoSuchElementException();
+					throw new IndexOutOfBoundsException();
 				}
 			}
 			// if the pointer could find an n+8 element it returns it
 			return last.getData();
 		} catch (NoSuchElementException e) {
-			// if NoSuchElementException gets thrown gets catched here and
-			// return null
 			return null;
 		}
 	}
 
 	/**
 	 * checks if the head is null, which when its filled it should'nt
-	 * 
 	 * @return
 	 */
 	public boolean isEmpty() {
 		return head == null;
 	}
 
-	/**
-	 * transfer this code to prepend()
-	 * 
-	 * @param t
-	 */
-	public void addFirst(T t) {
-		head = new Node<T>(t, head);
-		speedListSize++;
-	}
 
 	/**
-	 * TODO: maybe implement a getT(); method in class node ?
 	 * 
 	 * @return
 	 */
@@ -126,7 +98,7 @@ public class SpeedList<T> implements ISpeedList<T> {
 		if (head == null) {
 			throw new NoSuchElementException();
 		} else {
-			return head.t;
+			return head.getData();
 		}
 	}
 
@@ -139,13 +111,13 @@ public class SpeedList<T> implements ISpeedList<T> {
 
 	public void addLast(T t) {
 		if (head == null) {
-			addFirst(t);
+			prepend(t);
 		} else {
-			Node<T> tmp = head;
-			while (tmp.next != null) {
-				tmp = tmp.next;
+			Node<T> temp = head;
+			while (temp.next != null) {
+				temp = temp.next;
 			}
-			tmp.next = new Node<T>(t, null);
+			temp.next = new Node<T>(t, null);
 		}
 		speedListSize++;
 	}
@@ -164,6 +136,7 @@ public class SpeedList<T> implements ISpeedList<T> {
 
 	/**
 	 * if the head is null we can forget about the rest of the list
+	 * maybe gc will clear it
 	 */
 	public void dropList() {
 		this.head = null;

@@ -1,7 +1,15 @@
 package de.unistuttgart.dsass2016.ex01.p2;
 
 import java.util.NoSuchElementException;
-
+/**
+ * 
+ * @author Wilhelm Buchmüller 3133783
+ * @author Daniel Wanner 3149308
+ * @author Artur Frenzen 2736424
+ * 
+ *
+ * @param <T>
+ */
 public class SpeedList<T> implements ISpeedList<T> {
 	private int speedListSize;
 	private Node<T> head;

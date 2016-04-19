@@ -4,8 +4,9 @@ import java.util.LinkedList;
 
 /**
  * 
- * @author zython5
- *
+ * @author Wilhelm Buchmüller 3133783
+ * @author Daniel Waner 3149308
+ * @author Artur Frenzen 2736424
  * @param <T>
  */
 public class Queue<T> implements IQueue<T> {

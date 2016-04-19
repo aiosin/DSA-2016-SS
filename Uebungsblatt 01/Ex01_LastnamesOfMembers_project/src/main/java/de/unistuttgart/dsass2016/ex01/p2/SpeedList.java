@@ -10,6 +10,9 @@ public class SpeedList<T> implements ISpeedList<T>, Iterable<T> {
 	private Node<T> head;
 
 	@Override
+	/**
+	 * size method of SpeedList, returns the current value of speedListSize
+	 */
 	public int size() {
 		return speedListSize;
 	}
@@ -25,31 +28,27 @@ public class SpeedList<T> implements ISpeedList<T>, Iterable<T> {
 	}
 
 	@Override
-	//TODO: fix and clean up
+	// TODO: fix and clean up
 	public T getNext8thElementOf(int pos) {
 		try {
+			// setting up a tmp head-node
 			Node<T> last = head;
-			
-			for(int i = 0; i < pos; i++)
-			{
-				if(last.hasNext())
-				{
+			// advances the pointer to the desired position
+			for (int i = 0; i < pos; i++) {
+				if (last.hasNext()) {
 					last = last.getNext();
-				}
-				else
-				{
+				} else {
 					break;
 				}
 			}
 			
+			//then the pointer advances another 8 nodes
+			//TODO: null or NoSuchElementException ?
 			for (int i = 0; i < 8; i++) {
-				if(last.hasNext())
-				{
+				if (last.hasNext()) {
 					last = last.getNext();
-				}
-				else
-				{
-					break;
+				} else {
+					throw new NoSuchElementException();
 				}
 			}
 			return last.getData();
@@ -144,25 +143,20 @@ public class SpeedList<T> implements ISpeedList<T>, Iterable<T> {
 			this.next = next;
 
 		}
-		
-		public T getData()
-		{
+
+		public T getData() {
 			return t;
 		}
-		
-		public Node<T> getNext()
-		{
-			if(next != null)
-			{
+
+		public Node<T> getNext() {
+			if (next != null) {
 				return next;
-			}
-			else
-			{
+			} else {
 				return null;
 			}
 		}
-		public boolean hasNext()
-		{
+
+		public boolean hasNext() {
 			return next != null;
 		}
 

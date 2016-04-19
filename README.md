@@ -9,4 +9,8 @@ Datenstrukturen und Algorithmen Uni Stuttgart SS 2016
 
 ##Useful Resources:
 	https://www.desmos.com/
+<<<<<<< HEAD
 awdawd
+=======
+merge test
+>>>>>>> test

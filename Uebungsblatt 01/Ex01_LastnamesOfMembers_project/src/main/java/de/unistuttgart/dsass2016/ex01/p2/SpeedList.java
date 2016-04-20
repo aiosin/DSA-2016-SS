@@ -1,6 +1,7 @@
 package de.unistuttgart.dsass2016.ex01.p2;
 
 import java.util.NoSuchElementException;
+
 /**
  * 
  * @author Wilhelm Buchmüller 3133783
@@ -16,6 +17,7 @@ public class SpeedList<T> implements ISpeedList<T> {
 
 	/**
 	 * size method of SpeedList, returns the current value of speedListSize
+	 * 
 	 * @return speedListSize
 	 */
 	public int size() {
@@ -33,6 +35,7 @@ public class SpeedList<T> implements ISpeedList<T> {
 
 	/**
 	 * Returns the element at the specified position in the list
+	 * 
 	 * @param Position
 	 * @return The specified element in the list
 	 */
@@ -52,9 +55,9 @@ public class SpeedList<T> implements ISpeedList<T> {
 
 			return tmp.t;
 		}
-		
+
 	}
-	
+
 	/**
 	 * Returns the next 8th element of the specified element in the list
 	 * 
@@ -91,12 +94,12 @@ public class SpeedList<T> implements ISpeedList<T> {
 
 	/**
 	 * checks if the head is null, which when its filled it should'nt
+	 * 
 	 * @return
 	 */
 	public boolean isEmpty() {
 		return head == null;
 	}
-
 
 	/**
 	 * 
@@ -143,15 +146,13 @@ public class SpeedList<T> implements ISpeedList<T> {
 	}
 
 	/**
-	 * if the head is null we can forget about the rest of the list
-	 * maybe gc will clear it
+	 * if the head is null we can forget about the rest of the list maybe gc
+	 * will clear it
 	 */
 	public void dropList() {
 		this.head = null;
 		speedListSize = 0;
 	}
-
-	
 
 	@SuppressWarnings("hiding")
 	public class Node<T> {
@@ -167,12 +168,12 @@ public class SpeedList<T> implements ISpeedList<T> {
 
 		}
 
-		//return data
+		// return data
 		public T getData() {
 			return t;
 		}
 
-		//returns the next element
+		// returns the next element
 		public Node<T> getNext() {
 			if (next != null) {
 				return next;

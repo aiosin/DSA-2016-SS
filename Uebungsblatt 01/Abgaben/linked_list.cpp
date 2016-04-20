@@ -203,6 +203,20 @@ public:
 			return 0;
 		}
 	}
+
+	void printBackwards()
+	{
+		int count = getCount();
+		Node<T>* last = getLast();
+		for(int i = 0; i < count; i++)
+		{
+			std::cout << last->getData() << std::endl;
+			while(last->getHasParent())
+			{
+				last = last->getParent();
+			}
+		}
+	}
 private:
 	Node<T>* m_Root;
 	bool m_HasRoot;
@@ -223,10 +237,7 @@ int main(int argc, char** argv)
 	l.pushBack(5);
 	int count = l.getCount();
 	std::cout << "count: " << count << std::endl;
-	for(int i = 0; i < count; i++)
-	{
-		std::cout << "Value at [" << i << "]: " << l[i] << std::endl;
-	}
+	l.printBackwards();
 	std::string s;
 	std::cin >> s;
 	return 0;

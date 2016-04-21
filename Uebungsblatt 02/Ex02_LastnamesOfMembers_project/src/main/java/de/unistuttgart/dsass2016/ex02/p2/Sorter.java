@@ -7,31 +7,37 @@ public class Sorter {
 	}
 
 	public static <T extends Comparable<T>> void bubbleSort(ISimpleList<T> list) {
-		// public static int[] bubblesort(int[] zusortieren) {
-		// int temp;
-		// for(int i=1; i<zusortieren.length; i++) {
-		// for(int j=0; j<zusortieren.length-i; j++) {
-		// if(zusortieren[j]>zusortieren[j+1]) {
-		// temp=zusortieren[j];
-		// zusortieren[j]=zusortieren[j+1];
-		// zusortieren[j+1]=temp;
-		// }
-		//
-		// }
-		// }
-		// return zusortieren;
-		// }
 
-		int temp;
-
-		for (int i = 0; i < list.size(); i++) {
-			for (int j = 0; j < list.size()-i; j++) {
-				
+		for (int outerloopIndex = 0; outerloopIndex < list.size(); outerloopIndex++) {
+			for (int innerloopIndex = 0; innerloopIndex < list.size() -outerloopIndex -1; innerloopIndex++) {
+				if (list.get(innerloopIndex).compareTo(list.get(innerloopIndex + 1))> 0) {
+					//TODO: so far so good
+					list.swap(innerloopIndex, innerloopIndex + 1);
+				}
 			}
 		}
+		
+		return;
 	}
 
 	public static <T extends Comparable<T>> void shakerSort(ISimpleList<T> list) {
 	}
 
+	public static void main(String[] args) {
+		SimpleList<Integer> smplList = new SimpleList<Integer>();
+		smplList.append(2);
+		smplList.append(122);
+		smplList.append(32);
+		smplList.append(42);
+		smplList.append(28);
+		smplList.append(29567);
+		smplList.append(245);
+		smplList.append(1);
+		smplList.append(76);
+		System.out.println(smplList.get(0));
+		bubbleSort(smplList);
+		for (int i = 0; i < smplList.size(); i++) {
+			System.out.println(smplList.get(i));
+		}
+	}
 }

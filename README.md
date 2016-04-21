@@ -14,7 +14,11 @@ Datenstrukturen und Algorithmen Uni Stuttgart SS 2016
 
 ##TODO:
 Übungsblatt 1:
-- Binär/lineare Suche
-- Sortieralgorithmen 
+- Binär/lineare Suche: DONE 
+- Sortieralgorithmen: DONE 
 
+
+Übungsblatt 2:
+- shakersort
+- komplexität
 

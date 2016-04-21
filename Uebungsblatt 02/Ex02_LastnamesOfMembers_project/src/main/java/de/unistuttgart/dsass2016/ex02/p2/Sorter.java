@@ -14,19 +14,6 @@ public class Sorter {
 			list.swap(i, hobbit);
 
 		}
-		// for (int i = 0; i < list.length - 1; i++) {
-		// int iSmallest = i;
-		//
-		// for (int j = i + 1; j < list.length; j++) {
-		// if (list[iSmallest].compareTo((list[j])) > 0) {
-		// iSmallest = j;
-		// }
-		// }
-		// E iSwap = list[iSmallest];
-		// list[iSmallest] = list[i];
-		// list[i] = iSwap;
-		//
-		// }
 	}
 
 	public static <T extends Comparable<T>> void bubbleSort(ISimpleList<T> list) {
@@ -43,6 +30,34 @@ public class Sorter {
 	}
 
 	public static <T extends Comparable<T>> void shakerSort(ISimpleList<T> list) {
+		int begin = 0;
+		int end = list.size() - 1;
+		while (begin < end) {
+			int min = begin;
+			int max = end;
+
+			for (int i = begin; i <= end; i++) {
+				if (list.get(i).compareTo(list.get(min)) < 0) {
+					min = i;
+				}
+
+				if (list.get(i).compareTo(list.get(max)) > 0) {
+					max = i;
+				}
+
+			}
+			list.swap(min, begin);
+			
+			if(max == begin){
+				list.swap(min, end);
+			}else {
+				list.swap(max, end);
+				
+			}
+			begin++;
+			end--;
+		}
+
 	}
 
 	public static void main(String[] args) {
@@ -72,6 +87,21 @@ public class Sorter {
 		smplList.append(1);
 		smplList.append(76);
 		selectionSort(smplList);
+		for (int i = 0; i < smplList.size(); i++) {
+			System.out.println(smplList.get(i));
+
+		}
+		smplList.flush();
+		smplList.append(2);
+		smplList.append(122);
+		smplList.append(32);
+		smplList.append(42);
+		smplList.append(28);
+		smplList.append(29567);
+		smplList.append(245);
+		smplList.append(1);
+		smplList.append(76);
+		shakerSort(smplList);
 		for (int i = 0; i < smplList.size(); i++) {
 			System.out.println(smplList.get(i));
 

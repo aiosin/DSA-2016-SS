@@ -47,12 +47,12 @@ public class Sorter {
 
 			}
 			list.swap(min, begin);
-			
-			if(max == begin){
+
+			if (max == begin) {
 				list.swap(min, end);
-			}else {
+			} else {
 				list.swap(max, end);
-				
+
 			}
 			begin++;
 			end--;
@@ -60,51 +60,4 @@ public class Sorter {
 
 	}
 
-	public static void main(String[] args) {
-		SimpleList<Integer> smplList = new SimpleList<Integer>();
-		smplList.append(2);
-		smplList.append(122);
-		smplList.append(32);
-		smplList.append(42);
-		smplList.append(28);
-		smplList.append(29567);
-		smplList.append(245);
-		smplList.append(1);
-		smplList.append(76);
-		System.out.println(smplList.get(0));
-		bubbleSort(smplList);
-		for (int i = 0; i < smplList.size(); i++) {
-			System.out.println(smplList.get(i));
-		}
-		smplList.flush();
-		smplList.append(2);
-		smplList.append(122);
-		smplList.append(32);
-		smplList.append(42);
-		smplList.append(28);
-		smplList.append(29567);
-		smplList.append(245);
-		smplList.append(1);
-		smplList.append(76);
-		selectionSort(smplList);
-		for (int i = 0; i < smplList.size(); i++) {
-			System.out.println(smplList.get(i));
-
-		}
-		smplList.flush();
-		smplList.append(2);
-		smplList.append(122);
-		smplList.append(32);
-		smplList.append(42);
-		smplList.append(28);
-		smplList.append(29567);
-		smplList.append(245);
-		smplList.append(1);
-		smplList.append(76);
-		shakerSort(smplList);
-		for (int i = 0; i < smplList.size(); i++) {
-			System.out.println(smplList.get(i));
-
-		}
-	}
 }

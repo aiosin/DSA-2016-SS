@@ -5,10 +5,11 @@ Datenstrukturen und Algorithmen Uni Stuttgart SS 2016
 	28/30 pts.
 
 ##Übungsblatt 1
-	XX/30 pts.
+	25/30 pts.
 
 ##Useful Resources:
 	https://www.desmos.com/
+	GeoGebra for Windows/Linux/OSX
 	
 *******
 
@@ -19,6 +20,6 @@ Datenstrukturen und Algorithmen Uni Stuttgart SS 2016
 
 
 Übungsblatt 2:
-- shakersort
-- komplexität
+- shakersort: DONE
+- komplexität:
 

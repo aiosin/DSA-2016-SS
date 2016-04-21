@@ -25,7 +25,9 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleList<T> {
 	public T get(int index) {
 		return list.get(index);
 	}
-	
+	public void flush(){
+		list.clear();
+	}
 	@Override
 	public void swap(int i, int j) {
 		T tmp = list.get(i);

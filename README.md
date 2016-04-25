@@ -21,5 +21,7 @@ Datenstrukturen und Algorithmen Uni Stuttgart SS 2016
 
 Übungsblatt 2:
 - shakersort: DONE
-- komplexität:
+- komplexität: DONE (?)
+- Aufgabe 1b)
+- convert to PDF
 

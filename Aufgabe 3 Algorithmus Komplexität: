@@ -1,0 +1,44 @@
+Aufgabe 3 Algorithmus Komplexität:
+
+a)
+
+for-loop n
+	for-loop n
+		for-loop 42
+
+Komplexitätsklasse n²
+Zwei verschachtelte for-loops mit einem for loop der 42 schritte lang ist
+
+
+
+b)
+
+if
+	O(n) 
+
+elif
+	O(n)
+
+in beiden ifelse cases nimmt die komplexität linear zu, je größer n wächst, desto größer werden auch die beiden while loops
+
+
+
+c)
+
+for loop 1 bis n
+	for loop 1 bis 1
+		O(1)
+	O(n)
+for loop 1 bis n
+	O(1)
+
+
+Komplexitätsklasse O(n)
+
+d)
+
+for loop 1 bis n
+	for loop 1 bis n
+		for loop 1 bis n
+
+Komplexitätsklasse O(n³), da dreifach geschachtelte 1 bis n for loop

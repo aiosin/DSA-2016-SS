@@ -1,0 +1,65 @@
+Aufgabe 1:
+
+b)
+
+O(1) ⊂ O(log n) ⊂ O(n) ⊂ O(n2) ⊂ O(n3) ⊂ O(2n) ⊂ O(3n) ⊂ O(10n)
+
+1. f1(n) = n
+
+2. f4(n) = log (n)
+
+3. f2(n) = n² log(n)
+
+4. f6(n) = n³
+
+5. f5(n) = 2^n
+
+6. f3(n) = n!
+
+
+Aufgabe 3 Algorithmus Komplexität:
+
+
+
+a)
+
+for-loop n
+	for-loop n
+		for-loop 42
+
+Komplexitätsklasse n²
+Zwei verschachtelte for-loops mit einem for loop der 42 schritte lang ist
+
+
+
+b)
+
+if
+	O(n) 
+
+elif
+	O(n)
+
+In beiden ifelse cases nimmt die komplexität linear zu, je größer n wächst, desto größer werden auch die beiden while loops
+
+
+
+c)
+
+for loop 1 bis n
+	for loop 1 bis 1
+		O(1)
+	O(n)
+for loop 1 bis n
+	O(1)
+
+
+Komplexitätsklasse O(n)
+
+d)
+
+for loop 1 bis n
+	for loop 1 bis n
+		for loop 1 bis n
+
+Komplexitätsklasse O(n³), da dreifach geschachtelte 1 bis n for loop

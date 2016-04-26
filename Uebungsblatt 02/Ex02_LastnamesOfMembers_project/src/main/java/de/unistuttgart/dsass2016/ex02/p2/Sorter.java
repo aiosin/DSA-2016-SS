@@ -29,6 +29,7 @@ public class Sorter {
 		return;
 	}
 
+	// TODO: clean up
 	public static <T extends Comparable<T>> void shakerSort(ISimpleList<T> list) {
 		int begin = 0;
 		int end = list.size() - 1;

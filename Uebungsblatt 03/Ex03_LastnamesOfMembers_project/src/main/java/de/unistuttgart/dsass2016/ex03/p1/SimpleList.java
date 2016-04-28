@@ -44,11 +44,28 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleListIterable<
 			int index = 0;
 			@Override
 			public boolean hasNext() {
-				if (list.size()== 0) {
-					return false;
-				}else {
-					
-				}
+				return index < list.size() && list.get(index) != null;
+			}
+
+			@Override
+			public T next() {
+				
+				return list.get(index++);
+			}
+			public void remove(){
+				throw new UnsupportedOperationException();
+			}
+		};
+
+	}
+
+	@Override
+	public Iterator<T> skippingIterator(int n) {
+		return new Iterator<T>(){
+			//TODO: iterator sould skip n elements 
+			@Override
+			public boolean hasNext() {
+				// TODO Auto-generated method stub
 				return false;
 			}
 
@@ -59,64 +76,9 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleListIterable<
 			}
 			
 		};
-		//return new SimpleListIterator<T>(list);
-
-	}
-
-	@Override
-	public Iterator<T> skippingIterator(int n) {
-		// TODO skipping iterator
-		return null;
-	}
-
-	@SuppressWarnings("hiding")
-	class SimpleListIterator<T> implements Iterator<T> {
-		private SimpleList<? extends T> list;
-
-		public SimpleListIterator(SimpleList<? extends T> list) {
-
-			this.list = list;
-
-		}
-
-		@Override
-		public boolean hasNext() {
-
-			return false;
-		}
-
-		@Override
-		public T next() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		public void remove() {
-			throw new UnsupportedOperationException();
-		}
-
 	}
 
 
-	@SuppressWarnings("hiding")
-	class SimpleListSkippingIterator<T> implements Iterator<T> {
 
-		@Override
-		public boolean hasNext() {
-			// TODO Auto-generated method stub
-			return false;
-		}
-
-		@Override
-		public T next() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		public void remove() {
-			throw new UnsupportedOperationException();
-		}
-
-	}
 
 }

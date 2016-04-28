@@ -36,20 +36,19 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleListIterable<
 
 	@Override
 	public Iterator<T> iterator() {
-		final SimpleList<T> list = this;
+		final SimpleList<T> normieList = this;
 		return new Iterator<T>() {
 
 			int index = 0;
 
 			@Override
 			public boolean hasNext() {
-				return index < list.size() && list.get(index) != null;
+				return index < normieList.size() && normieList.get(index) != null;
 			}
 
 			@Override
 			public T next() {
-				T temp = list.get(index++);
-				return temp;
+				return normieList.get(index++);
 			}
 
 			public void remove() {
@@ -61,18 +60,30 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleListIterable<
 
 	@Override
 	public Iterator<T> skippingIterator(final int n) {
+		final SimpleList<T> skipperList = this;
 		return new Iterator<T>() {
 			int index = 0;
-
+			//int skiperator = index + n;
 			@Override
 			public boolean hasNext() {
-				return index < list.size() + n-1 && list.get(index + n-1) != null;
+				
+				return index < skipperList.size() && skipperList.get(index) != null;
 			}
 
 			@Override
 			public T next() {
+				try {
+					index += n;
+					T temp = list.get(index);
+					return temp;
+				} catch (Exception e) {
+					System.out.println("End of ArrayList at idx: "+index);
+				}
+				return null;
+			}
 
-				return list.get(index + n-1);
+			public void remove() {
+				throw new UnsupportedOperationException();
 			}
 
 		};
@@ -89,13 +100,14 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleListIterable<
 		list.append("6aylmao");
 
 		Iterator<String> iter = list.iterator();
-		while (iter.hasNext()){
+		while (iter.hasNext()) {
 			System.out.println(iter.next());
 		}
-//		Iterator<String> iter2 = list.skippingIterator(2);
-//		while(iter2.hasNext()){
-//			System.out.println(iter2.next());
-//		}
+		Iterator<String> qter = list.skippingIterator(2);
+		while(qter.hasNext()){
+			System.out.println(qter.next());
+		}
+		
 	}
 
 }

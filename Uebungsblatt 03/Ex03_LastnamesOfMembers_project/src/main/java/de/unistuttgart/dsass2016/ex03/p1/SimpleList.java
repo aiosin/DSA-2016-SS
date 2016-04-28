@@ -33,15 +33,15 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleListIterable<
 		list.set(i, list.get(j));
 		list.set(j, tmp);
 	}
-	
 
 	@Override
 	public Iterator<T> iterator() {
 		final SimpleList<T> list = this;
-		//TODO REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-		return new Iterator<T>(){
-			
+		// TODO REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE WHY NOT WORK REEEEEEEEEEEEEE
+		return new Iterator<T>() {
+
 			int index = 0;
+
 			@Override
 			public boolean hasNext() {
 				return index < list.size() && list.get(index) != null;
@@ -49,10 +49,12 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleListIterable<
 
 			@Override
 			public T next() {
-				
-				return list.get(index++);
+				T temp = list.get(index++);
+				index++;
+				return temp;
 			}
-			public void remove(){
+
+			public void remove() {
 				throw new UnsupportedOperationException();
 			}
 		};
@@ -60,25 +62,23 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleListIterable<
 	}
 
 	@Override
-	public Iterator<T> skippingIterator(int n) {
-		return new Iterator<T>(){
-			//TODO: iterator sould skip n elements 
+	public Iterator<T> skippingIterator(final int n) {
+		return new Iterator<T>() {
+			int index = 0;
+
 			@Override
 			public boolean hasNext() {
-				// TODO Auto-generated method stub
-				return false;
+				return index < list.size() + n && list.get(index + n) != null;
 			}
 
 			@Override
 			public T next() {
-				// TODO Auto-generated method stub
-				return null;
+
+				return list.get(index + n);
 			}
-			
+
 		};
 	}
-
-
 
 
 }

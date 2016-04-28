@@ -37,7 +37,6 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleListIterable<
 	@Override
 	public Iterator<T> iterator() {
 		final SimpleList<T> list = this;
-		// TODO REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE WHY NOT WORK REEEEEEEEEEEEEE
 		return new Iterator<T>() {
 
 			int index = 0;
@@ -50,7 +49,6 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleListIterable<
 			@Override
 			public T next() {
 				T temp = list.get(index++);
-				index++;
 				return temp;
 			}
 
@@ -68,17 +66,36 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleListIterable<
 
 			@Override
 			public boolean hasNext() {
-				return index < list.size() + n && list.get(index + n) != null;
+				return index < list.size() + n-1 && list.get(index + n-1) != null;
 			}
 
 			@Override
 			public T next() {
 
-				return list.get(index + n);
+				return list.get(index + n-1);
 			}
 
 		};
 	}
 
+	public static void main(String[] args) {
+		SimpleList<String> list = new SimpleList<String>();
+		list.append("aylmao");
+		list.append("1aylmao");
+		list.append("2aylmao");
+		list.append("3aylmao");
+		list.append("4aylmao");
+		list.append("5aylmao");
+		list.append("6aylmao");
+
+		Iterator<String> iter = list.iterator();
+		while (iter.hasNext()){
+			System.out.println(iter.next());
+		}
+//		Iterator<String> iter2 = list.skippingIterator(2);
+//		while(iter2.hasNext()){
+//			System.out.println(iter2.next());
+//		}
+	}
 
 }

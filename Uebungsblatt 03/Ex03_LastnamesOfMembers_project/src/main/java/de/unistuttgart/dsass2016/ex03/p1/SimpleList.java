@@ -1,9 +1,7 @@
 package de.unistuttgart.dsass2016.ex03.p1;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.*;
+
 
 public class SimpleList<T extends Comparable<T>> implements ISimpleListIterable<T> {
 	
@@ -38,15 +36,49 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleListIterable<
 
 	@Override
 	public Iterator<T> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return new SimpleListIterator<T>();
+
 	}
 
 	@Override
 	public Iterator<T> skippingIterator(int n) {
-		// TODO Auto-generated method stub
+		//TODO skipping iterator
 		return null;
 	}
 	
+	@SuppressWarnings("hiding")
+	class SimpleListIterator<T> implements Iterator<T>{
+
+		@Override
+		public boolean hasNext() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		@Override
+		public T next() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+	}
+	
+	@SuppressWarnings("hiding")
+	class SimpleListSkippingIterator<T> implements Iterator<T>{
+
+		@Override
+		public boolean hasNext() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		@Override
+		public T next() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+	}
 
 }

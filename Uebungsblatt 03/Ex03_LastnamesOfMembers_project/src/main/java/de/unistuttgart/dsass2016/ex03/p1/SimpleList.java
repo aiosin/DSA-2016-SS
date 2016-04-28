@@ -103,6 +103,9 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleListIterable<
 		while (iter.hasNext()) {
 			System.out.println(iter.next());
 		}
+		System.out.println("--------------------");
+		String s = null;
+		System.out.println(s);
 		Iterator<String> qter = list.skippingIterator(2);
 		while(qter.hasNext()){
 			System.out.println(qter.next());

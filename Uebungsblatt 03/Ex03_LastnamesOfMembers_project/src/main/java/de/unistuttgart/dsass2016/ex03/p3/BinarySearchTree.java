@@ -2,9 +2,11 @@ package de.unistuttgart.dsass2016.ex03.p3;
 
 public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchTree<T> {
 	
+	IBinaryTreeNode<T> root;
 	
+
 	public BinarySearchTree() {
-		// TODO: to be completed
+		root = null;
 	}
 
 	@Override
@@ -15,8 +17,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchT
 
 	@Override
 	public IBinaryTreeNode<T> getRootNode() {
-		// TODO Auto-generated method stub
-		return null;
+		return root;
 	}
 
 	@Override

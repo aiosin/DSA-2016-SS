@@ -2,6 +2,9 @@ package de.unistuttgart.dsass2016.ex03.p3;
 
 public class BinaryTreeNode<T extends Comparable<T>> implements IBinaryTreeNode<T> {
 	
+	private T val;
+	private IBinaryTreeNode<T> LeftChild;
+	private IBinaryTreeNode<T> RightChild;
 	
 	public BinaryTreeNode() {
 		// TODO: to be completed
@@ -9,38 +12,33 @@ public class BinaryTreeNode<T extends Comparable<T>> implements IBinaryTreeNode<
 
 	@Override
 	public void setValue(T val) {
-		// TODO Auto-generated method stub
-		
+		this.val = val;
 	}
 
 	@Override
 	public T getValue() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.val;
 	}
 
 	@Override
 	public void setLeftChild(IBinaryTreeNode<T> left) {
-		// TODO Auto-generated method stub
-		
+		this.LeftChild = left;
 	}
 
 	@Override
 	public IBinaryTreeNode<T> getLeftChild() {
-		// TODO Auto-generated method stub
-		return null;
+		return LeftChild;
 	}
 
 	@Override
 	public void setRightChild(IBinaryTreeNode<T> right) {
-		// TODO Auto-generated method stub
+		this.RightChild = right;
 		
 	}
 
 	@Override
 	public IBinaryTreeNode<T> getRightChild() {
-		// TODO Auto-generated method stub
-		return null;
+		return RightChild;
 	}
 
 

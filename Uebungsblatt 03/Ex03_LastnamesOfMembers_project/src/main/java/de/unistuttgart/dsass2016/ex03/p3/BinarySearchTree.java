@@ -61,12 +61,13 @@ public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchT
 	public IBinaryTreeNode<T> getRootNode() {
 		//WAS GETTING ROOT PART OF YOUR PLAN ?
 		return root;
-		
+		//WELL CONGRATULATIONS YOU GOT YOURSELF CAUGHT
 	}
 
 	@Override
 	public boolean isFull() {
-		// TODO Auto-generated method stub
+		//TODO: we'll have todo this one recursively aswell
+		
 		return false;
 	}
 

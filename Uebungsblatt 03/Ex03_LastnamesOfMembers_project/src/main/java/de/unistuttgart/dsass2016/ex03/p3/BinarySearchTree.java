@@ -66,26 +66,64 @@ public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchT
 		//WELL CONGRATULATIONS YOU GOT YOURSELF CAUGHT
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public boolean isFull() {
-		//TODO: we'll have todo this one recursively aswell
 		//maybe put every Node in existance in a LinkedList and check if either both nodes
 		//and not null or have some data
-		//if even only one fails this test we're going to return null
+		//if even only one fails this test we're going to return false
 		if (root == null) {
 			return true;
 		} else {
-			
+			//Getting all the Nodes into an ArrayList
+			for (IBinaryTreeNode<T> node : returnBSTinOrder(root)) {
+				if (nodeQualifiesForFull(node) == true ) {
+					 
+				}else {
+					return false;
+				}
+			}
 		}
 		return false;
 		
 		
 		
 	}
-	
-	public List<IBinaryTreeNode<T>> recursivelyGetChildren(IBinaryTreeNode<T> node){
+	//instead of 
+	public boolean nodeQualifiesForFull(IBinaryTreeNode<T> node){
+		if (node.getLeftChild() != null || node.getRightChild() != null) {
+			return true;
+		} else if(node.getLeftChild() == null && node.getRightChild() == null) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	//HORRIBLY INEFFICIENT AND POSSIBLY DANGEROUS AVOID AT ALL COSTS
+	//method scans the branches of a node and returns them all in 
+	public List<IBinaryTreeNode<T>> returnBSTinOrder(IBinaryTreeNode<T> node){
+		//temporary workaroound HORRIBLY INEFFICIENT (O(2n)) out of place
+		Stack<IBinaryTreeNode<T>> s = new Stack<IBinaryTreeNode<T>>();
 		List<IBinaryTreeNode<T>> returnList = new ArrayList<IBinaryTreeNode<T>>();
-		return null;
+		
+		if(node == null){
+			return null;
+		}
+		IBinaryTreeNode<T> currentNode = root;
+		while(!s.isEmpty() || currentNode != null ){
+			if (currentNode !=null) {
+				s.push(currentNode);
+				currentNode = currentNode.getLeftChild();
+			} else {
+				IBinaryTreeNode<T> n = s.pop();
+				returnList.add(n);
+				currentNode = n.getRightChild();
+			}
+		}
+		
+		
+		
+		return returnList;
 		
 	}
 

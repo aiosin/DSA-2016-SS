@@ -7,7 +7,8 @@ public class BinaryTreeNode<T extends Comparable<T>> implements IBinaryTreeNode<
 	private IBinaryTreeNode<T> RightChild;
 	
 	public BinaryTreeNode() {
-		// TODO: to be completed
+		// TODO: keep empty ?
+		
 	}
 
 	@Override

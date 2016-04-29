@@ -72,9 +72,10 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleListIterable<
 
 			@Override
 			public T next() {
+
 				try {
-					index += n;
 					T temp = list.get(index);
+					index += n;
 					return temp;
 				} catch (Exception e) {
 					System.out.println("End of ArrayList at idx: "+index);

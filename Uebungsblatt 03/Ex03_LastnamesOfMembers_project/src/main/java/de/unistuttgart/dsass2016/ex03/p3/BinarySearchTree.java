@@ -1,5 +1,7 @@
 package de.unistuttgart.dsass2016.ex03.p3;
 
+import java.util.*;
+
 public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchTree<T> {
 
 	IBinaryTreeNode<T> root;
@@ -67,8 +69,24 @@ public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchT
 	@Override
 	public boolean isFull() {
 		//TODO: we'll have todo this one recursively aswell
-		
+		//maybe put every Node in existance in a LinkedList and check if either both nodes
+		//and not null or have some data
+		//if even only one fails this test we're going to return null
+		if (root == null) {
+			return true;
+		} else {
+			
+		}
 		return false;
+		
+		
+		
+	}
+	
+	public List<IBinaryTreeNode<T>> recursivelyGetChildren(IBinaryTreeNode<T> node){
+		List<IBinaryTreeNode<T>> returnList = new ArrayList<IBinaryTreeNode<T>>();
+		return null;
+		
 	}
 
 }

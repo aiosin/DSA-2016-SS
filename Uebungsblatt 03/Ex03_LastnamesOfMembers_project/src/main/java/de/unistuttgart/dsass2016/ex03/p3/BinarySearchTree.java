@@ -32,9 +32,6 @@ public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchT
 		}
 	}
 
-	// this method decides where to put the given node in the tree
-	// if the value is lower than the higher node, node gets sent left
-	// if the value is higher than the higher node, node gets sent right
 	public void recursiveInsertNode(IBinaryTreeNode<T> root, IBinaryTreeNode<T> node) {
 		// left right statement
 		if (root.getValue().compareTo(node.getValue()) < 0) {
@@ -42,13 +39,10 @@ public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchT
 			// value at the point and break;
 			if (root.getLeftChild() == null) {
 				root.setLeftChild(node);
-
-				// TODO: find out if return is necessary
 				return;
 			} else {
 				recursiveInsertNode(root.getLeftChild(), node);
 			}
-			// same story for the right side as for the left side
 		} else {
 			if (root.getRightChild() == null) {
 				root.setRightChild(node);

@@ -2,6 +2,12 @@ package de.unistuttgart.dsass2016.ex03.p3;
 
 import java.util.*;
 
+/**
+ * @author Wilhelm Buchmüller 3133783
+ * @author Daniel Waner 3149308
+ * @author Artur Frenzen 2736424
+ */
+
 public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchTree<T> {
 
 	IBinaryTreeNode<T> root;
@@ -21,6 +27,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchT
 			recursiveInsertNode(root, insertionNode);
 			return;
 		} else {
+			// for shits and giggles
 			throw new RuntimeException();
 		}
 	}
@@ -33,6 +40,10 @@ public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchT
 			} else {
 				recursiveInsertNode(root.getLeftChild(), node);
 			}
+		} else if (root.getValue().compareTo(node.getValue()) == 0) {
+			// aylmao
+			return;
+
 		} else {
 			if (root.getRightChild() == null) {
 				root.setRightChild(node);
@@ -73,12 +84,12 @@ public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchT
 			return true;
 		} else if (node.getLeftChild() != null && node.getLeftChild() != null) {
 			return true;
-		} else return false;
+		} else
+			return false;
 	}
 
 	public List<IBinaryTreeNode<T>> returnBSTinOrder(IBinaryTreeNode<T> rootNode, List<IBinaryTreeNode<T>> list) {
-		if (list == null)
-		{
+		if (list == null) {
 			list = new ArrayList<IBinaryTreeNode<T>>();
 		}
 		if (rootNode != null) {
@@ -88,32 +99,6 @@ public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchT
 		}
 		return list;
 
-	}
-	
-	public static void main(String[] args) {
-		BinarySearchTree<Integer> tree = new BinarySearchTree<>();
-		
-		System.out.println("start");
-		tree.insert(new Integer (4));
-		tree.insert(new Integer (3));
-		tree.insert(new Integer (5));
-
-		
-		System.out.println("end insert");
-		
-		System.out.println(tree.getRootNode().getValue());
-		
-		System.out.println("start is full");
-		System.out.println(tree.isFull());
-		List<IBinaryTreeNode<Integer>> list = tree.returnBSTinOrder(tree.getRootNode(), null);
-		for(IBinaryTreeNode<Integer> node : list)
-		{
-			System.out.println(node.getValue());
-		}
-		System.out.println("left child: " + tree.getRootNode().getLeftChild().getValue());
-		System.out.println("right child: " + tree.getRootNode().getRightChild().getValue());
-		System.out.println("end of file");
-		System.exit(0);
 	}
 
 }

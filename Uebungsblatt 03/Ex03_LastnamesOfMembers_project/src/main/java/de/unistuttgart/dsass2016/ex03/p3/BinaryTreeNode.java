@@ -1,4 +1,9 @@
 package de.unistuttgart.dsass2016.ex03.p3;
+/**
+ * @author Wilhelm Buchmüller 3133783
+ * @author Daniel Waner 3149308
+ * @author Artur Frenzen 2736424
+*/
 
 public class BinaryTreeNode<T extends Comparable<T>> implements IBinaryTreeNode<T> {
 	

@@ -4,6 +4,12 @@ import java.util.*;
 
 public class SimpleList<T extends Comparable<T>> implements ISimpleListIterable<T> {
 
+	/**
+	 * @author Wilhelm Buchmüller 3133783
+	 * @author Daniel Waner 3149308
+	 * @author Artur Frenzen 2736424
+	 */
+
 	/** Do not modify the existing methods and signatures */
 	private final List<T> list;
 
@@ -63,10 +69,11 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleListIterable<
 		final SimpleList<T> skipperList = this;
 		return new Iterator<T>() {
 			int index = 0;
-			//int skiperator = index + n;
+
+			// int skiperator = index + n;
 			@Override
 			public boolean hasNext() {
-				
+
 				return index < skipperList.size() && skipperList.get(index) != null;
 			}
 
@@ -78,7 +85,7 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleListIterable<
 					index += n;
 					return temp;
 				} catch (Exception e) {
-					System.out.println("End of ArrayList at idx: "+index);
+					System.out.println("End of ArrayList at idx: " + index);
 				}
 				return null;
 			}
@@ -88,30 +95,6 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleListIterable<
 			}
 
 		};
-	}
-
-	public static void main(String[] args) {
-		SimpleList<String> list = new SimpleList<String>();
-		list.append("aylmao");
-		list.append("1aylmao");
-		list.append("2aylmao");
-		list.append("3aylmao");
-		list.append("4aylmao");
-		list.append("5aylmao");
-		list.append("6aylmao");
-
-		Iterator<String> iter = list.iterator();
-		while (iter.hasNext()) {
-			System.out.println(iter.next());
-		}
-		System.out.println("--------------------");
-		String s = null;
-		System.out.println(s);
-		Iterator<String> qter = list.skippingIterator(2);
-		while(qter.hasNext()){
-			System.out.println(qter.next());
-		}
-		
 	}
 
 }

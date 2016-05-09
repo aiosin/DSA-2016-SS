@@ -4,10 +4,6 @@ public class CircularLinkedList<T extends Comparable<T>> implements ICircularLin
 
 	private ILinkedListNode<T> head = new LinkedListNode<T>();
 
-	// do we need this ?
-	@SuppressWarnings("unused")
-	private ILinkedListNode<T> last = new LinkedListNode<T>();
-
 	private int size;
 
 	@Override
@@ -30,14 +26,16 @@ public class CircularLinkedList<T extends Comparable<T>> implements ICircularLin
 
 			// making the circle go round
 			temp.setNext(head.getNext());
-			
-			//getting the last element in the list
+
+			// getting the last element in the list
 			ILinkedListNode<T> last = head;
 			while (last.getNext() != head) {
 				last = last.getNext();
 			}
-			//setting the last item in the circle list
+			// setting the last item in the circle list
 			last.setNext(temp);
+			temp.setPrev(last);
+
 			size++;
 		}
 
@@ -45,8 +43,28 @@ public class CircularLinkedList<T extends Comparable<T>> implements ICircularLin
 
 	@Override
 	public T get(int index) {
-		// TODO implement
-		return null;
+		//creating dummy node
+		ILinkedListNode<T> dummy = new LinkedListNode<T>();
+		
+		// decide in which way we'll go
+		if (index <= 0) {
+			//ASCENDING
+			dummy = head;
+			for (int i = 0; i < index; i++) {
+				dummy = dummy.getNext();
+			}
+		
+		} else {
+			//getting last element of the list
+			dummy = head.getNext().getPrev();
+			
+			//DESCENDING
+			index = Math.abs(index);
+			for (int i = 0; i < index; i++) {
+				dummy = dummy.getPrev();
+			}
+		}
+		return dummy.getElement();
 	}
 
 	@Override

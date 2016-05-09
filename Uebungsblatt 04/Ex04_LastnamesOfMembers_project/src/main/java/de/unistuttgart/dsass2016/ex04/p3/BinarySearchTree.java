@@ -2,8 +2,7 @@ package de.unistuttgart.dsass2016.ex04.p3;
 
 import java.util.Iterator;
 
-public class BinarySearchTree<T extends Comparable<T>> implements
-		IBinarySearchTreeIterable<T> { 
+public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchTreeIterable<T> {
 
 	private volatile IBinaryTreeNode<T> root;
 
@@ -35,5 +34,22 @@ public class BinarySearchTree<T extends Comparable<T>> implements
 		return this.root;
 	}
 
+	@Override
+	public Iterator<T> iterator(TreeTraversalType traversalType) {
+		// TODO implement this one thing at a time
+		//return in inner anonymous class
+		//TODO: implement 
+		if (traversalType ==TreeTraversalType.PREORDER) {
+			
+		} else if (traversalType == TreeTraversalType.INORDER) {
+
+		} else if (traversalType == TreeTraversalType.POSTORDER) {
+
+		} else {
+			// LevelOrder
+			
+		}
+		return null;
+	}
 
 }

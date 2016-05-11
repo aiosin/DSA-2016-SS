@@ -54,12 +54,12 @@ public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchT
 
 				// todo this iteratorstuff
 				public boolean hasNext() {
-					return false;
+					return (((index + 1) <= iteratorList.size()) && (iteratorList.get(index + 1) != null));
 				}
 
 				@Override
 				public T next() {
-					return null;
+					return iteratorList.get(index++).getValue();
 				}
 
 				public void remove() {
@@ -75,12 +75,12 @@ public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchT
 
 				@Override
 				public boolean hasNext() {
-					return false;
+					return (((index + 1) <= iteratorList.size()) && (iteratorList.get(index + 1) != null));
 				}
 
 				@Override
 				public T next() {
-					return null;
+					return iteratorList.get(index++).getValue();
 				}
 
 				public void remove() {
@@ -95,12 +95,12 @@ public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchT
 
 				@Override
 				public boolean hasNext() {
-					return false;
+					return (((index + 1) <= iteratorList.size()) && (iteratorList.get(index + 1) != null));
 				}
 
 				@Override
 				public T next() {
-					return null;
+					return iteratorList.get(index++).getValue();
 				}
 
 				public void remove() {
@@ -116,12 +116,12 @@ public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchT
 
 				@Override
 				public boolean hasNext() {
-					return false;
+					return (((index + 1) <= iteratorList.size()) && (iteratorList.get(index + 1) != null));
 				}
 
 				@Override
 				public T next() {
-					return null;
+					return iteratorList.get(index++).getValue();
 				}
 
 				public void remove() {

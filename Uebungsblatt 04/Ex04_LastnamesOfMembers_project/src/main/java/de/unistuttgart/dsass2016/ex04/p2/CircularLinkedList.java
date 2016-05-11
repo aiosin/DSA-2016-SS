@@ -1,40 +1,45 @@
 package de.unistuttgart.dsass2016.ex04.p2;
 
+import javax.swing.plaf.synth.SynthSpinnerUI;
+
 public class CircularLinkedList<T extends Comparable<T>> implements ICircularLinkedList<T> {
 
 	private ILinkedListNode<T> head = new LinkedListNode<T>();
 
-	private int size;
-
+	private int size = 0;
+	
 	@Override
 	public void append(T element) {
 		if (size == 0) {
-			ILinkedListNode<T> temp = new LinkedListNode<T>();
-
-			temp.setElement(element);
-			temp.setPrev(temp);
-			temp.setNext(temp);
-
-			head.setNext(temp);
-
+			
+			head.setElement(element);
+			//Because head is only element:
+			head.setNext(head);
+			head.setPrev(head);
 			size++;
+			
 		} else {
-			// instatiating a new node
+			
+			//Instantiating new node
 			ILinkedListNode<T> temp = new LinkedListNode<T>();
-			// giving the node the data
+			//Saving data in node
 			temp.setElement(element);
 
-			// making the circle go round
-			temp.setNext(head.getNext());
+			//Getting tail element, its one back from head
+			ILinkedListNode<T> tail = head.getPrev();
+			
+			//Appending to tail
+			tail.setNext(temp);
+			
+			//Changing previous node to new tail
+			head.setPrev(temp);
+			
+			//New tails previous is old tail
+			temp.setPrev(tail);
+			
+			//New tails next is head
+			temp.setNext(head);
 
-			// getting the last element in the list
-			ILinkedListNode<T> last = head;
-			while (last.getNext() != head) {
-				last = last.getNext();
-			}
-			// setting the last item in the circle list
-			last.setNext(temp);
-			temp.setPrev(last);
 
 			size++;
 		}
@@ -43,28 +48,27 @@ public class CircularLinkedList<T extends Comparable<T>> implements ICircularLin
 
 	@Override
 	public T get(int index) {
-		//creating dummy node
-		ILinkedListNode<T> dummy = new LinkedListNode<T>();
+		//Creating temporary node:
+		ILinkedListNode<T> temp = null;
 		
-		// decide in which way we'll go
-		if (index <= 0) {
-			//ASCENDING
-			dummy = head;
-			for (int i = 0; i < index; i++) {
-				dummy = dummy.getNext();
-			}
-		
-		} else {
-			//getting last element of the list
-			dummy = head.getNext().getPrev();
-			
-			//DESCENDING
+		if (index == 0) {
+			return head.getElement();
+		} else if (index < 0) {
 			index = Math.abs(index);
-			for (int i = 0; i < index; i++) {
-				dummy = dummy.getPrev();
+			temp = head;
+			for(int i = 0; i < index; i++)
+			{
+				temp = temp.getPrev();
 			}
-		}
-		return dummy.getElement();
+			return temp.getElement();
+		} else if (index > 0) {
+			temp = head;
+			for(int i = 0; i < index; i++)
+			{
+				temp = temp.getNext();
+			}
+			return temp.getElement();
+		} else return null;
 	}
 
 	@Override

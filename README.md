@@ -13,6 +13,9 @@ Datenstrukturen und Algorithmen Uni Stuttgart SS 2016
 ##Übungsblatt 3
 	25.5/30 pts
 	
+##Übungsblagg 4
+	8/30 pts.
+	
 ##Useful Resources:
 	https://www.desmos.com/
 	GeoGebra for Windows/Linux/OSX

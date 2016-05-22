@@ -1,8 +1,7 @@
 package de.unistuttgart.dsass2016.ex05.p2;
 
 import java.util.ArrayList;
-
-import de.unistuttgart.dsass2016.ex05.p2.Point;
+import java.util.List;
 
 public class Rect extends CollisionObject{
 
@@ -57,15 +56,48 @@ public class Rect extends CollisionObject{
 	
 	/**
 	 * Implementation of the abstract function that computes the covered area of a rectangle
+	 * @throws Exception 
 	 */
-	public ArrayList<Point> coveredArea(){
-		//TODO: Insert code for Assignment 5.2 a
+	public ArrayList<Point> coveredArea() {
+		
+		//returnList
+		
+		List<Point> list;
+		
+		//check floating point cases
+		
+		
+		if (this.isInitialized()) {
+			//points which will be used to iterate over
+			
+			Point top_left = new Point(this.x, this.y);
+			Point top_right= new Point(this.x+this.width, this.y);
+			Point bottom_left= new Point(this.x, this.y-this.height);
+			Point bottom_right= new Point(this.x+ this.width,this.y-this.height);
+			
+			list = new ArrayList<Point>();
+			
+			
+			for (float i = Math.round(top_left.getX()); i < Math.round(top_right.getX()); i++) {
+				for (float j = Math.round(bottom_left.getY()); j < Math.round(bottom_right.getY()); j++) {
+					Point dummyPoint = new Point(i,j);
+					list.add(dummyPoint);
+				}
+			}
+			
+		}else {
+			return null;
+		}
+		
+			return null;		
+		
 	}
 	
 	/**
 	 * Implementation of the abstract function that checks if two rectangles are colliding
 	 */
 	public boolean collisionWith(CollisionObject obj){
+		return false;
 		//TODO: Insert code for Assignment 5.2 b
 	}
 

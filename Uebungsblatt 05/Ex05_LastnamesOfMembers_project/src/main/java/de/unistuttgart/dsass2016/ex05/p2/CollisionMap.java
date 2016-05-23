@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+//TODO: DONT FORGET AUTHORTAGS
 public class CollisionMap {
 
 	public Rect gridRect;
 	public ArrayList<Rect> rectObstacleList;
+	
 	
 	private ArrayList<ArrayList<ArrayList<CollisionObject>>> gridCollisionMap;
 	
@@ -41,7 +43,31 @@ public class CollisionMap {
 	/**
 	 * Fills the CollisionMap with the CollisionObjects
 	 */
+	//TODO: TEST THIS; ASAP
+	//also can this be done faster ??
 	public void fillCollisionMap(){
+		//reminder:
+		//rectObstacleList is our list of all rectangles
+		//gridCollisionMap, is triple encapsulated imposter map which can be used like this:
+		//gridCollisionMap.getX.getY.ALL_ELEMENTS_WHICH_SHARE_THIS_DOT
+		
+		//were going to loop over all 
+		for (int i = 0; i < rectObstacleList.size(); i++) {
+			//these are all the points in the current rectangle
+			ArrayList<Point> dummyList = rectObstacleList.get(i).coveredArea();
+			
+			for (int j = 0; j < dummyList.size(); j++) {
+				//dummyList.get(j)
+				int dummyX = (int) dummyList.get(j).getX();
+				int dummyY = (int) dummyList.get(j).getY();
+				
+				insertCollisionObject(dummyX, dummyY, rectObstacleList.get(i));
+			}
+			
+		}
+		
+		
+		
 		//TODO: Insert code for Assignment 5.2 c
 	}
 	

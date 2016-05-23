@@ -11,5 +11,10 @@ public class dank_fuel {
 		int aylmao3 = Math.round(high_ceil);
 		System.out.println(aylmao3);
 		
+		float aylmawdao = 1092830192.1F;
+		float aylmao12983 = 10298381F;
+		System.out.println(aylmawdao % 1);
+		System.out.println(aylmao12983 % 1);
+		
 	}
 }

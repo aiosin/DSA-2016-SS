@@ -134,8 +134,9 @@ public class Rect extends CollisionObject{
 	 * Implementation of the abstract function that checks if two rectangles are colliding
 	 */
 	public boolean collisionWith(CollisionObject obj){
+		ArrayList<Point> thisRect = this.coveredArea();
+		
 		return false;
-		//TODO: Insert code for Assignment 5.2 b
 	}
 
 }

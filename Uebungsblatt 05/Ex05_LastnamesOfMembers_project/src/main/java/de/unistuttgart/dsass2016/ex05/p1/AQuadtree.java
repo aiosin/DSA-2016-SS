@@ -115,8 +115,44 @@ public abstract class AQuadtree<T extends ATreeObject > {
 	 * @param selecedArea: The method is looking for elements that are possible located in the area 
 	 */
 	
-	public void rangeQuery(ArrayList<T> resultList, Rect selecedArea){
-		//TODO Insert code for Assignment 5.1 b
+	public void rangeQuery(ArrayList<T> resultList, Rect selectedArea){
+		Point tl = new Point(selectedArea.x, selectedArea.y);
+		Point tr = new Point(selectedArea.x + selectedArea.width, selectedArea.y);
+		Point bl = new Point(selectedArea.x, selectedArea.y + selectedArea.height);
+		Point br = new Point(selectedArea.x + selectedArea.width, selectedArea.y + selectedArea.height);
+		
+		if (topleft == null) {
+			for(T t : leafElements) {
+				if(selectedArea.contains(t.getLocation())) {
+					resultList.add(t);
+				}
+			}
+		} else {
+			if (topleft.getArea().contains(tl) ||
+					topleft.getArea().contains(tl) ||
+					topleft.getArea().contains(tl) ||
+					topleft.getArea().contains(tl)) {
+				
+			}
+			if (topleft.getArea().contains(tl) ||
+					topleft.getArea().contains(tl) ||
+					topleft.getArea().contains(tl) ||
+					topleft.getArea().contains(tl)) {
+				
+			}
+			if (topleft.getArea().contains(tl) ||
+					topleft.getArea().contains(tl) ||
+					topleft.getArea().contains(tl) ||
+					topleft.getArea().contains(tl)) {
+				
+			}
+			if (topleft.getArea().contains(tl) ||
+					topleft.getArea().contains(tl) ||
+					topleft.getArea().contains(tl) ||
+					topleft.getArea().contains(tl)) {
+				
+			}
+		}
 	}
 	
 	/**

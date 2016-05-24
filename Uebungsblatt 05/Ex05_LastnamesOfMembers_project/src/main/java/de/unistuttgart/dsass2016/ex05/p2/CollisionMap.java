@@ -54,12 +54,12 @@ public class CollisionMap {
 		//were going to loop over all 
 		for (int i = 0; i < rectObstacleList.size(); i++) {
 			//these are all the points in the current rectangle
-			ArrayList<Point> dummyList = rectObstacleList.get(i).coveredArea();
+			ArrayList<Point> dummyPointList = rectObstacleList.get(i).coveredArea();
 			
-			for (int j = 0; j < dummyList.size(); j++) {
+			for (int j = 0; j < dummyPointList.size(); j++) {
 				//dummyList.get(j)
-				int dummyX = (int) dummyList.get(j).getX();
-				int dummyY = (int) dummyList.get(j).getY();
+				int dummyX = (int) dummyPointList.get(j).getX();
+				int dummyY = (int) dummyPointList.get(j).getY();
 				
 				insertCollisionObject(dummyX, dummyY, rectObstacleList.get(i));
 			}
@@ -69,6 +69,7 @@ public class CollisionMap {
 		
 		
 		//TODO: Insert code for Assignment 5.2 c
+		//TODONE!
 	}
 	
 	/**

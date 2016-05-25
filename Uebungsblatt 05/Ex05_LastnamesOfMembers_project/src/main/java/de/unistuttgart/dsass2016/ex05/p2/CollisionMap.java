@@ -22,8 +22,8 @@ public class CollisionMap {
 	 * Generates a CollisionMap form a list of CollisionObjects
 	 * 
 	 * @param rList
-	 *            List if obstacles that should be placed within the
-	 *            CollisionMap
+	 *        List of obstacles that should be placed within the
+	 *        CollisionMap
 	 */
 	public CollisionMap(ArrayList<Rect> rList) {
 
@@ -64,7 +64,6 @@ public class CollisionMap {
 	/**
 	 * Fills the CollisionMap with the CollisionObjects
 	 */
-	// TODO: TEST THIS; ASAP
 	public void fillCollisionMap() {
 		/**
 		 * reminder:

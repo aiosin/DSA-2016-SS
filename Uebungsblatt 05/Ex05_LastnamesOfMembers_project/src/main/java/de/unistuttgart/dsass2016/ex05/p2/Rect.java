@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 /**
  * 
- * @author 3133783 Wilhelm Buchmüller 
- * @author 3149308 Daniel Wanner 
+ * @author 3133783 Wilhelm Buchmüller
+ * @author 3149308 Daniel Wanner
  * @author 2736424 Artur Frenzen
  *
  */
@@ -76,12 +76,12 @@ public class Rect extends CollisionObject {
 	 * Implementation of the abstract function that computes the covered area of
 	 * a rectangle
 	 * 
-	 * @throws Exception
+	 * @throws nothing
 	 */
-	// TODO: test this today
+	@SuppressWarnings("unused")
 	public ArrayList<Point> coveredArea() {
 
-		// returnList status: I N I T I A L I Z E D 
+		// returnList status: I N I T I A L I Z E D
 
 		ArrayList<Point> list = null;
 
@@ -92,6 +92,8 @@ public class Rect extends CollisionObject {
 			Point top_left = new Point(this.x, this.y);
 			Point top_right = new Point(this.x + this.width, this.y);
 			Point bottom_left = new Point(this.x, this.y - this.height);
+
+			// bit of a fuckup there whith this point
 			Point bottom_right = new Point(this.x + this.width, this.y - this.height);
 
 			list = new ArrayList<Point>();
@@ -100,11 +102,9 @@ public class Rect extends CollisionObject {
 			float toprightindex = top_right.getX();
 			float bottomleftindex = bottom_left.getY();
 
-			// dont really neeed this point but w/e
-			float bottomrightindex = bottom_right.getY();
+			float bottomtopindex = top_right.getY();
 
-			
-			//check if number is an integer, if not we'll make it one
+			// check if number is an integer, if not we'll make it one
 			// stupid boilerplate code REEEEEEEEE
 			if ((topleftindex == Math.floor(topleftindex)) && !Double.isInfinite(topleftindex)) {
 				// no dothing
@@ -124,16 +124,22 @@ public class Rect extends CollisionObject {
 				bottomleftindex = (float) Math.ceil(bottomleftindex);
 			}
 
-			// bottom right is going to be the same as bottom left but just for
-			// verbosity's sake its going to stay
-			if ((bottomrightindex == Math.floor(bottomrightindex)) && !Double.isInfinite(bottomrightindex)) {
+			if ((bottomtopindex == Math.floor(bottomtopindex)) && !Double.isInfinite(bottomtopindex)) {
 
 			} else {
-				bottomrightindex = (float) Math.ceil(bottomrightindex);
+				bottomtopindex = (float) Math.ceil(bottomtopindex);
 			}
 
+			// from the bottomleft point, these loops go through the rectangle
+			// and add the points into
+			// the list
+
+			/**
+			 * explanation: were looping every column from the bottom left to
+			 * the top right
+			 */
 			for (float i = topleftindex; i < toprightindex; i++) {
-				for (float j = bottomleftindex; j < bottomrightindex; j++) {
+				for (float j = bottomleftindex; j < toprightindex; j++) {
 					Point the_Point = new Point(i, j);
 					list.add(the_Point);
 				}
@@ -151,20 +157,19 @@ public class Rect extends CollisionObject {
 	 * colliding
 	 */
 	public boolean collisionWith(CollisionObject obj) {
-		
-			
-		
+
 		ArrayList<Point> thisRect = this.coveredArea();
 		ArrayList<Point> thatRect = obj.coveredArea();
 
 		// """"""temporary workaround"""""""
+		// but basically just checks if a points exists in the one or other
 		for (int i = 0; i < thisRect.size(); i++) {
 			if (thisRect.get(i).getX() == thatRect.get(i).getX() && thisRect.get(i).getY() == thatRect.get(i).getY()) {
-				return false;
+				return true;
 			}
 		}
 
-		return true;
+		return false;
 	}
 
 }

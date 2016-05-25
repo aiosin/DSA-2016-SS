@@ -78,10 +78,10 @@ public class Quadtree<T extends ATreeObject> extends AQuadtree<T>{
 			Rect r_bottomright = new Rect(area.x + (area.width/2), area.y + (area.height/2), area.width/2, area.height/2);
 			
 			//Immer die objektliste weitergeben, die sich schon im parent befindet -> spart rechenleistung
-			topleft = new Quadtree(r_topleft, maxElementNumberInLeafs, leafElements, objectType);
-			topright = new Quadtree(r_topright, maxElementNumberInLeafs, leafElements, objectType);
-			bottomleft = new Quadtree(r_bottomleft, maxElementNumberInLeafs, leafElements, objectType);
-			bottomright = new Quadtree(r_bottomright, maxElementNumberInLeafs, leafElements, objectType);
+			topleft = new Quadtree<T>(r_topleft, maxElementNumberInLeafs, leafElements, objectType);
+			topright = new Quadtree<T>(r_topright, maxElementNumberInLeafs, leafElements, objectType);
+			bottomleft = new Quadtree<T>(r_bottomleft, maxElementNumberInLeafs, leafElements, objectType);
+			bottomright = new Quadtree<T>(r_bottomright, maxElementNumberInLeafs, leafElements, objectType);
 			
 			//Knotenbaum hat keine blätter
 			leafElements.clear();
@@ -114,34 +114,5 @@ public class Quadtree<T extends ATreeObject> extends AQuadtree<T>{
 		return s;
 	}
 	*/
-	
-	public static void main(String[] args) {
-		ArrayList<TreeObject> list = new ArrayList<TreeObject>();
-		
-		list.add(new TreeObject(new Point(0, 0)));
-		list.add(new TreeObject(new Point(1, 56)));
-		list.add(new TreeObject(new Point(4, 65)));
-		list.add(new TreeObject(new Point(5, 11)));
-		list.add(new TreeObject(new Point(6, 32)));
-		list.add(new TreeObject(new Point(7, 54)));
-		list.add(new TreeObject(new Point(8, 3)));
-		list.add(new TreeObject(new Point(9, 8)));
-		list.add(new TreeObject(new Point(10, 6)));
-		list.add(new TreeObject(new Point(77, 4)));
-		list.add(new TreeObject(new Point(13, 12)));
-		list.add(new TreeObject(new Point(51, 21)));
-		list.add(new TreeObject(new Point(3, 32)));
-		
-		Quadtree<TreeObject> quad = new Quadtree<TreeObject>(new Rect(0, 0, 1000, 1000), 2, list, TreeObject.class);
-		
-		System.out.println(quad.printOut(0));
-		
-		System.out.println("finished!");
-		try {
-			System.in.read();
-		} catch (Exception ex) {
-			
-		}
-	}
 
 }

@@ -6,6 +6,12 @@ import de.unistuttgart.dsass2016.ex05.p1.Rect;
 
 import java.io.*;
 
+/**
+ * 
+ * @author Daniel Wanner 3149308
+ * @author Wilhelm Buchmüller 3133783	
+ * @author Artur Frenzen 2736424
+ */
 public abstract class AQuadtree<T extends ATreeObject > {
 
 	protected Class<T> objectType;
@@ -114,44 +120,22 @@ public abstract class AQuadtree<T extends ATreeObject > {
 	 * @param resultList: List that is used to store the elements that are contained in the selecedArea
 	 * @param selecedArea: The method is looking for elements that are possible located in the area 
 	 */
-	
 	public void rangeQuery(ArrayList<T> resultList, Rect selectedArea){
-		Point tl = new Point(selectedArea.x, selectedArea.y);
-		Point tr = new Point(selectedArea.x + selectedArea.width, selectedArea.y);
-		Point bl = new Point(selectedArea.x, selectedArea.y + selectedArea.height);
-		Point br = new Point(selectedArea.x + selectedArea.width, selectedArea.y + selectedArea.height);
+		if (!area.intersects(selectedArea)){ //Wenn quadtree segment nicht im range liegt, return
+			return;
+		}
 		
-		if (topleft == null) {
-			for(T t : leafElements) {
-				if(selectedArea.contains(t.getLocation())) {
-					resultList.add(t);
-				}
+		for (T object : leafElements) { //Alle leaf elements die im selectedArea sind hinzufügen
+			if (selectedArea.contains(object.getLocation())) {
+				resultList.add(object);
 			}
-		} else {
-			if (topleft.getArea().contains(tl) ||
-					topleft.getArea().contains(tl) ||
-					topleft.getArea().contains(tl) ||
-					topleft.getArea().contains(tl)) {
-				
-			}
-			if (topleft.getArea().contains(tl) ||
-					topleft.getArea().contains(tl) ||
-					topleft.getArea().contains(tl) ||
-					topleft.getArea().contains(tl)) {
-				
-			}
-			if (topleft.getArea().contains(tl) ||
-					topleft.getArea().contains(tl) ||
-					topleft.getArea().contains(tl) ||
-					topleft.getArea().contains(tl)) {
-				
-			}
-			if (topleft.getArea().contains(tl) ||
-					topleft.getArea().contains(tl) ||
-					topleft.getArea().contains(tl) ||
-					topleft.getArea().contains(tl)) {
-				
-			}
+		}
+		
+		if (topleft != null) { //Rekursiv weiter, fals Teilbaum
+			topleft.rangeQuery(resultList, selectedArea);
+			topright.rangeQuery(resultList, selectedArea);
+			bottomright.rangeQuery(resultList, selectedArea);
+			bottomleft.rangeQuery(resultList, selectedArea);
 		}
 	}
 	

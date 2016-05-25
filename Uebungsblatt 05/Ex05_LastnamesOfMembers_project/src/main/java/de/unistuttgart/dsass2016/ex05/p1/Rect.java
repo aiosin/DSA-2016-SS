@@ -2,6 +2,12 @@ package de.unistuttgart.dsass2016.ex05.p1;
 
 import de.unistuttgart.dsass2016.ex05.p1.Point;
 
+/**
+ * 
+ * @author Daniel Wanner 3149308
+ * @author Wilhelm Buchmüller 3133783	
+ * @author Artur Frenzen 2736424
+ */
 public class Rect {
 
 	//parameter of a rect
@@ -39,6 +45,14 @@ public class Rect {
 		}
 
 		return false;
+	}
+	/**
+	 * Checks if this rectangle intersects with rectangle r
+	 * @param r: rectangle to check
+	 */
+	public boolean intersects(Rect r) {
+		return (Math.abs(x - r.x) * 2 < (width + r.width)) &&
+		         (Math.abs(y - r.y) * 2 < (height + r.height));
 	}
 
 	/**

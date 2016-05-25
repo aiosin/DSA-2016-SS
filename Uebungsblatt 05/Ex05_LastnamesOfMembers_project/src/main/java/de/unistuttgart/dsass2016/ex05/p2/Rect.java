@@ -2,6 +2,13 @@ package de.unistuttgart.dsass2016.ex05.p2;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author 3133783 Wilhelm Buchmüller 
+ * @author 3149308 Daniel Wanner 
+ * @author 2736424 Artur Frenzen
+ *
+ */
 public class Rect extends CollisionObject {
 
 	// parameter of a rect
@@ -74,7 +81,7 @@ public class Rect extends CollisionObject {
 	// TODO: test this today
 	public ArrayList<Point> coveredArea() {
 
-		// returnList
+		// returnList status: I N I T I A L I Z E D 
 
 		ArrayList<Point> list = null;
 
@@ -96,6 +103,8 @@ public class Rect extends CollisionObject {
 			// dont really neeed this point but w/e
 			float bottomrightindex = bottom_right.getY();
 
+			
+			//check if number is an integer, if not we'll make it one
 			// stupid boilerplate code REEEEEEEEE
 			if ((topleftindex == Math.floor(topleftindex)) && !Double.isInfinite(topleftindex)) {
 				// no dothing
@@ -142,6 +151,9 @@ public class Rect extends CollisionObject {
 	 * colliding
 	 */
 	public boolean collisionWith(CollisionObject obj) {
+		
+			
+		
 		ArrayList<Point> thisRect = this.coveredArea();
 		ArrayList<Point> thatRect = obj.coveredArea();
 

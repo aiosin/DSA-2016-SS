@@ -133,8 +133,8 @@ public class Quadtree<T extends ATreeObject> extends AQuadtree<T>{
 		list.add(new TreeObject(new Point(3, 32)));
 		
 		Quadtree<TreeObject> quad = new Quadtree<TreeObject>(new Rect(0, 0, 1000, 1000), 2, list, TreeObject.class);
-		
-		System.out.println(quad.printOut(0));
+
+		//System.out.println(quad.printOut(0));
 		
 		System.out.println("finished!");
 		try {

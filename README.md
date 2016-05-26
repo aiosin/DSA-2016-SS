@@ -4,12 +4,12 @@ Datenstrukturen und Algorithmen Uni Stuttgart SS 2016
 ###Autorentags für copy-paste:
 
 	/**
- 	* 
- 	* @author 3133783 Wilhelm Buchmüller 
- 	* @author 3149308 Daniel Wanner 
- 	* @author 2736424 Artur Frenzen
- 	*
- 	*/
+ 	 * 
+ 	 * @author 3133783 Wilhelm Buchmüller 
+ 	 * @author 3149308 Daniel Wanner 
+ 	 * @author 2736424 Artur Frenzen
+ 	 *
+ 	 */
 
 **************
 
@@ -27,7 +27,10 @@ Datenstrukturen und Algorithmen Uni Stuttgart SS 2016
 	
 ##Übungsblatt 4:
 	8/30 pts.
-	
+
+##Übungsblatt 5:
+	X/X pts.
+
 ##Useful Resources:
 	https://www.desmos.com/
 	GeoGebra for Windows/Linux/OSX

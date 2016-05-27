@@ -3,6 +3,8 @@ package de.unistuttgart.dsass2016.ex06.p4;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 /**
  * Do not modify this class
  */
@@ -34,5 +36,6 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleList<T> {
 		list.set(i, list.get(j));
 		list.set(j, tmp);
 	}
+	
 
 }

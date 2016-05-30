@@ -9,3 +9,40 @@ Aufgabe 2
 https://de.wikibooks.org/wiki/Algorithmensammlung:_Sortierverfahren:_Heapsort
 https://en.wikipedia.org/wiki/Heapsort
 
+
+Lösungen:
+
+Aufgabe 1a)
+-G1 ist gerichtet
+-G1 ist gewichtet
+
+-G2 ist gerichtet
+-G2 ist nicht gewichtet
+
+b)
+
+TODO
+siehe oben @Aufgabe 1
+
+
+c)
+
+A
+*
+B > F
+*
+C>A>E
+*
+D>A
+*
+E>B>C
+*
+F
+
+d)
+G2= 13 19 | [3,2,3,4] [2,3,6] [0] [1,8] [2,6,10] [0] [1, 12] [0] [1,13] [0] [1,8] [2,11,9] [0]
+
+Aufgabe 2
+
+1) F>A>E>B>C>X>D
+2) D>C>E>X>F>A>B

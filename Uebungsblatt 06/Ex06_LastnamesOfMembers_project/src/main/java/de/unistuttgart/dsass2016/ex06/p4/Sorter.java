@@ -21,10 +21,11 @@ public class Sorter {
 		list.append(6);
 		list.append(7);
 		list.append(8);
-
+		System.out.println(list.size());
 		for (int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i));
 		}
+		System.out.println("start heapsort");
 		heapSort(list);
 		for (int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i));
@@ -62,11 +63,19 @@ public class Sorter {
 			//checking for rightchild
 			if (childIndex +1 <= lastIndex+1) {
 
+				//TODO: fix INDEXOUFOTBOUNDS EXCEPTION AT THIS POINT ASAP
 				//checking value of rightChild
 				//if its bigger than the leftchild than were taking the rightchild
-				if (list.get(childIndex).compareTo(list.get(childIndex+1)) < 0) {
-					childIndex++;
+				
+				try {
+					System.out.println(list.get(childIndex));
+					if (list.get(childIndex).compareTo(list.get(childIndex+1)) < 0 && list.get(childIndex + 1) != null) {
+						childIndex++;
+					}
+				} catch (IndexOutOfBoundsException e) {
+					System.out.println("index out of bounds exception occurred");
 				}
+				
 				
 				
 			}

@@ -1,3 +1,4 @@
+#git
 *.class
 
 # Mobile Tools for Java (J2ME)
@@ -13,3 +14,11 @@ hs_err_pid*
 
 #gedit files
 *.md~
+
+#LATEX FILES
+*.blg
+*.synctex
+*.log
+*.bbl
+*.aux
+*.blg

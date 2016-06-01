@@ -192,6 +192,38 @@ Sommersemester 2016\\
 %\newpage
 % Aufgabe 3
 \aufgabe{Präfix/Patricia-Baum}
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[level/.style ={sibling distance=60mm/#1}]
+\node[circle,draw] (a) {A}
+	child {node [circle,draw] (b) {B}
+		child {node [circle,draw] (c) {C}}
+		child {node [circle, draw] (d) {D}}
+	}
+	child {node [circle, draw] (e) {E}
+		child {node [circle, draw] (f) {F}}
+		child {node [circle, draw] (g) {G}}
+	};
+\end{tikzpicture}
+\caption{Teilaufgabe a)}
+\label{fig:baum}
+\end{figure}
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[level/.style ={sibling distance=60mm/#1}]
+\node[circle,draw] (a) {A}
+	child {node [circle,draw] (b) {B}
+		child {node [circle,draw] (c) {C}}
+		child {node [circle, draw] (d) {D}}
+	}
+	child {node [circle, draw] (e) {E}
+		child {node [circle, draw] (f) {F}}
+		child {node [circle, draw] (g) {G}}
+	};
+\end{tikzpicture}
+\caption{Teilaufgabe b)}
+\label{fig:baum}
+\end{figure}
 
 
 

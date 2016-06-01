@@ -14,7 +14,10 @@
 \usepackage[lined,algonl,boxed]{algorithm2e}
 \usepackage{tikz}
 \usepackage[inline]{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{trees}
 \usepackage{fancyhdr}
+\usepackage{forest}
 \pagestyle{fancy} 
 \fancyhf{}
 
@@ -75,11 +78,9 @@ Sommersemester 2016\\
               every node/.style={fill=white,circle},
               every edge/.style={draw=red,very thick}]
     \path [->] (D) edge node {$8$} (A);
-		\path [->] (C) edge node {$4$} (A);
-		
+	\path [->] (C) edge node {$4$} (A);	
     \path [->] (C) edge [bend right = 20] node {$6$} (E);
     \path [->] (E) edge [bend right = 20] node {$1$} (C);
-    
     \path [->] (B) edge node {$7$} (F);
     \path [->] (E) edge node {$6$} (B);
     
@@ -188,39 +189,56 @@ Sommersemester 2016\\
 
 
 
+\newpage
+
 
 %\newpage
 % Aufgabe 3
 \aufgabe{Präfix/Patricia-Baum}
 \begin{figure}[!h]
 \centering
-\begin{tikzpicture}[level/.style ={sibling distance=60mm/#1}]
-\node[circle,draw] (a) {A}
-	child {node [circle,draw] (b) {B}
-		child {node [circle,draw] (c) {C}}
-		child {node [circle, draw] (d) {D}}
-	}
-	child {node [circle, draw] (e) {E}
-		child {node [circle, draw] (f) {F}}
-		child {node [circle, draw] (g) {G}}
-	};
-\end{tikzpicture}
+
+
+\begin{forest}
+for tree={
+  black,
+  draw,
+  fill=white!40,
+}
+  [{Eis | 3}
+    [{n | 1}, edge label={node [midway, left] {e}}
+      [{aren | 4}, edge label={node [midway, left] {w}}
+        [,phantom]
+      ]
+      	[{}, edge label={node [midway, right {}}[,phantom]]
+      [,phantom]
+    ]
+    [{}, edge label={node [midway, right] {F}}
+      [{}, edge label={node [midway, right] {E}}
+        [{}, edge label={node [midway, right] {L}}
+          [{}, edge label={node [midway, right] {D}}, label=below:Feld
+          ]
+          [,phantom]
+        ]
+        [,phantom]
+      ]
+      [,phantom]
+    ]
+  ]
+\end{forest}
+
+
+
 \caption{Teilaufgabe a)}
 \label{fig:baum}
 \end{figure}
 \begin{figure}[!h]
 \centering
-\begin{tikzpicture}[level/.style ={sibling distance=60mm/#1}]
-\node[circle,draw] (a) {A}
-	child {node [circle,draw] (b) {B}
-		child {node [circle,draw] (c) {C}}
-		child {node [circle, draw] (d) {D}}
-	}
-	child {node [circle, draw] (e) {E}
-		child {node [circle, draw] (f) {F}}
-		child {node [circle, draw] (g) {G}}
-	};
-\end{tikzpicture}
+
+
+
+
+
 \caption{Teilaufgabe b)}
 \label{fig:baum}
 \end{figure}

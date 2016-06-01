@@ -23,3 +23,5 @@ hs_err_pid*
 *.aux
 *.blg
 *.synctex.gz
+*.nfs*
+*.synctex.gz*

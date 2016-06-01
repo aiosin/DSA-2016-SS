@@ -13,15 +13,21 @@ public class Sorter {
 	public static void main(String[] args) {
 		// for testing purposes
 		SimpleList<Integer> list = new SimpleList<Integer>();
-		list.append(1);
-		list.append(2);
-		list.append(3);
-		list.append(4);
-		list.append(5);
-		list.append(6);
-		list.append(7);
+		list.append(9);
 		list.append(8);
+		list.append(7);
+		list.append(6);
+		list.append(5);
+		list.append(4);
+		list.append(3);
+		list.append(2);
+		list.append(1);
+		list.append(0);
+
+		System.out.println("list size:");
 		System.out.println(list.size());
+		System.out.println("unsorted list");
+
 		for (int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i));
 		}
@@ -30,83 +36,51 @@ public class Sorter {
 		for (int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i));
 		}
+		System.out.println("heapsort end");
 	}
 
 	public static <T extends Comparable<T>> void heapSort(ISimpleList<T> list) {
-		//checking for those ugly cases
-		if (list.size() > 1 && list != null) {
-			//setting up for the first time
-			generateMaxHeap(list);
-			
-			//actually sorting starts NOW
-			
-			for (int i = list.size()-1; i > 0; i--) {
-				swap(list, i , 0);
-				siftDown(list, 0, i);
-			}
-			
-		}
-	}
-	
-	/**
-	 * 
-	 * @param list
-	 * @param siftIndex
-	 * @param lastIndex
-	 */
-	public static <T extends Comparable<T>> void siftDown(ISimpleList<T> list, int siftIndex, int lastIndex) {
-		//while siftindex is in a higher level than our lastindex, do this:
-		while (siftIndex <= (lastIndex /2) -1) {
-			
-			//initializing a childindex, next were going to check if theres a left or right child
-			int childIndex = ((siftIndex+1)*2) -1;
-			//checking for rightchild
-			if (childIndex +1 <= lastIndex+1) {
 
-				//TODO: fix INDEXOUFOTBOUNDS EXCEPTION AT THIS POINT ASAP
-				//checking value of rightChild
-				//if its bigger than the leftchild than were taking the rightchild
-				
-				try {
-					System.out.println(list.get(childIndex));
-					if (list.get(childIndex).compareTo(list.get(childIndex+1)) < 0 && list.get(childIndex + 1) != null) {
-						childIndex++;
-					}
-				} catch (IndexOutOfBoundsException e) {
-					System.out.println("index out of bounds exception occurred");
+		// build maxheap
+		for (int i = list.size() / 2; i >= 0; i--) {
+			percolate(list, i, list.size()-1);
+		}
+
+		for (int i = list.size() - 1; i > 0; i--) {
+			// swapping the biggest and the last element in the heap
+			list.swap(0, i);
+
+			// rebuild heap
+			percolate(list, 0, i - 1);
+
+		}
+
+	}
+
+	private static <T extends Comparable<T>> void percolate(ISimpleList<T> f, int idx, int last) {
+		int i = idx, j;
+		while ((2 * i) + 1 <= last) {
+			// f[i] hat linkes Kind
+			j = (2 * i) + 1;
+			// f[j] ist linkes Kind von f[i]
+			if (j + 1 <= last) {
+				// f[i] hat auch rechtes Kind
+				if (f.get(j).compareTo(f.get(j + 1)) < 0) {
+					// vergleiche Kinder
+					j++;
+					// f[j] ist jetzt kleiner
 				}
-				
-				
-				
 			}
-			//continue
-			//checking if we need to swap the parent with the child
-			if (list.get(siftIndex).compareTo(list.get(childIndex)) <  0) {
-				swap(list, siftIndex ,childIndex );
-			}else {
-				
-			//if we dont need to swap then we hit the lowest level and were done
+			if (f.get(i).compareTo(f.get(j)) < 0) {
+				// vergleiche Elter mit Kind
+				f.swap(i, j);
+				i = j;
+				// versickere weiter
+			} else {
+				// halte an, Heap - Bedingung erfüllt
 				break;
 			}
-			
 		}
-		
 	}
-	//swap method for verbosity
-	public static <T extends Comparable<T>> void swap(ISimpleList<T> list, int swapA, int swapB){
-		
-		list.swap(swapA, swapB);
-		
-	}
-	
-	
-	public static <T extends Comparable<T>> void generateMaxHeap(ISimpleList<T> maxHeapList){
-		
-		//iteration over the whole array
-		//the other half of the array is the "last level" of the heap
-		for (int i = maxHeapList.size()/2; i > 0; i--) {
-			siftDown(maxHeapList, i, maxHeapList.size());
-		}
-		
-	}
+
 }

@@ -10,35 +10,6 @@ public class Sorter {
 	private Sorter() {
 	}
 
-	public static void main(String[] args) {
-		// for testing purposes
-		SimpleList<Integer> list = new SimpleList<Integer>();
-		list.append(9);
-		list.append(8);
-		list.append(7);
-		list.append(6);
-		list.append(5);
-		list.append(4);
-		list.append(3);
-		list.append(2);
-		list.append(1);
-		list.append(0);
-
-		System.out.println("list size:");
-		System.out.println(list.size());
-		System.out.println("unsorted list");
-
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i));
-		}
-		System.out.println("start heapsort");
-		heapSort(list);
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i));
-		}
-		System.out.println("heapsort end");
-	}
-
 	public static <T extends Comparable<T>> void heapSort(ISimpleList<T> list) {
 
 		// build maxheap

@@ -1,10 +1,5 @@
 package de.unistuttgart.dsass2016.ex06.p4;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
-
-@SuppressWarnings("unused")
 public class Sorter {
 
 	private Sorter() {

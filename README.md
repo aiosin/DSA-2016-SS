@@ -38,8 +38,6 @@ Datenstrukturen und Algorithmen Uni Stuttgart SS 2016
 	https://www.desmos.com/
 	GeoGebra for Windows/Linux/OSX
 	TeXMaker -- Linux "TeX" - Editor
-
-
 	Online: Graph-Visualizer
 	http://visualgo.net/
 

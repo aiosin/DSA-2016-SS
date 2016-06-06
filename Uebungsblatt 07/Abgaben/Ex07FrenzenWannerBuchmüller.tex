@@ -1,0 +1,82 @@
+% LaTeX Template für Datenstrukturen und Algorithmen Abgaben
+% Autor: Sandro Speth
+% Bei Fragen: Sandro.Speth@studi.informatik.uni-stuttgart.de
+\documentclass[12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[a4paper,lmargin={2cm},rmargin={2cm},tmargin={3.5cm},bmargin = {2.5cm},headheight = {4cm}]{geometry}
+\usepackage{amsmath,amssymb,amstext}
+\usepackage{amsthm}
+\usepackage[lined,algonl,boxed]{algorithm2e}
+\usepackage{tikz}
+\usepackage[inline]{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\pagestyle{fancy} 
+\fancyhf{}
+
+\renewcommand{\theenumi}{(\alph{enumi})}
+\renewcommand{\labelenumi}{\text{\theenumi}}
+
+\newcounter{sheetnr}
+\setcounter{sheetnr}{0} % Nummer des Übungsblattes
+
+\newcounter{exnum}
+\setcounter{exnum}{1} % Nummer der Aufgabe
+
+\newcommand{\aufgabe}[1]{\section*{Aufgabe \theexnum\stepcounter{exnum}: #1}} % Befehl für Aufgabentitel
+
+% Rechter Teil der Kopfzeile:
+% Namen und Matrikelnummern aller Bearbeiter
+\rhead{Wilhelm Buchmüller (3133783)\\
+Daniel Wanner (3149308)\\
+Artur Frenzen (2736424)}
+
+% Linker Teil der Kopfzeile
+\lhead{Datenstrukturen \& Algorithmen\\
+Sommersemester 2016\\
+Übungsblatt \thesheetnr}
+
+% Beginn des eigentlichen Dokuments
+\begin{document}
+% Aufgabe 1
+\aufgabe{Tiefensuche}
+\begin{itemize}
+	
+\item
+	%it works
+	\hyperlink{test.com}{Test}
+\item
+
+\end{itemize}
+
+
+% Aufgabe 2
+\aufgabe{Topologisches Sortieren}
+% Teilaufgaben
+\begin{enumerate}
+	\item 
+	\item
+	\item
+	\item
+	\item
+\end{enumerate}
+
+
+% Aufgabe 3
+\aufgabe{\framebox[1.1\width]{Impl} in Java}
+
+\paragraph{}\noindent\rule{8cm}{0.4pt}
+
+
+\aufgabe{Euler, Hamilton und kürzeste Wege}
+\begin{enumerate}
+	\item
+	\item
+\end{enumerate}
+% Ende des Dokuments
+\end{document}

@@ -23,7 +23,7 @@
 \renewcommand{\labelenumi}{\text{\theenumi}}
 
 \newcounter{sheetnr}
-\setcounter{sheetnr}{0} % Nummer des Übungsblattes
+\setcounter{sheetnr}{07} % Nummer des Übungsblattes
 
 \newcounter{exnum}
 \setcounter{exnum}{1} % Nummer der Aufgabe
@@ -60,10 +60,90 @@ Sommersemester 2016\\
 % Teilaufgaben
 \begin{enumerate}
 	\item 
+	Die topologische Sortierung gibt eine der möglichen zulässigen Sortierungen eines gerichteten Graphen G zur Abarbeitung der Knoten an.
+	Beispielsweise eine Sortierung von zu erledigenden Aufgaben in Reihenfolge.
+	
+	\item Nein, die Gewichtung einer Kante spielt bei der Sortierung nur die Richtung einer Kante spielt eine Rolle für die Topologische Sortierung.
 	\item
+	Ja, es kann mehrere gültige Sortierungen geben. Das liegt daran, dass freie Kanten zufällig gewählt werden.
+	
 	\item
+	\begin{itemize}
+		\item
+		\begin{tikzpicture}
+		\begin{scope}[every node/.style={circle,thick,draw}]
+    \node (1) at (0,0) {A};
+    \node (2) at (3,0) {B};
+    \node (3) at (0,-2) {C};
+    \node (4) at (3,-2) {D};
+	\node (5) at (0,-4) {E};
+	\node (6) at (3,-4) {F};
+	\node (7) at (1.5,-5) {G};
+    
+    
+    
+	\end{scope}
+
+	\begin{scope}[>={stealth[black]},
+              every node/.style={fill=white,circle},
+              every edge/.style={draw=red,very thick}]
+              
+    \path [->] (2) edge (1);
+    \path [->] (1) edge [bend right=30](5);
+    \path [->] (2) edge (5);
+    
+    \path [->] (2) edge [bend left=90] (7);
+    
+	\path [->] (6) edge (7);    
+    
+    \path [->] (5) edge (6);
+    
+
+	\path [->] (7) edge [bend left=20] (3);
+	\path [->] (4) edge (7);
+	\path [->] (6) edge (3);
+	\path [->] (5) edge (4);
+		
+    
+\end{scope}
+\end{tikzpicture}
+
+		\item
+		\begin{itemize}
+		
+		
+			\item Ausgangsknoten A
+			\item Besuch von A
+			\item Schritt zu E
+			\item Besuch von E
+			\item Schritt zu D
+			\item Besuch von D
+			\item Schritt zu G
+			\item Besuch von G
+			\item Schritt zu C
+			\item Besuch von C
+			\item Einfärben von C
+			\item Einfärben von G
+			\item Einfärben von D
+			\item Schritt (von E) zu F
+			\item Besuch von F
+			\item Schritt zu C
+			\item Schritt (von F) zu G
+			\item Einfärben von F
+			\item Einfärben von E
+			\item Einfärben von A
+			\item Besucht von B
+			\item Schritt (von B) zu A
+			\item Schritt zu E
+			\item Schritt zu G
+			\item Einfärben von B
+		
+			
+		\end{itemize}
+		Es ergibt sich eine mögliche Priority-Queue von \(G_s\): \big[ B, A, E, F, D, G, C \big]
+	\end{itemize}
 	\item
-	\item
+	Ja, solche Graphen existieren. Eine topologische Sortierung funktioniert nicht bei 				zyklischen Graphen.
 \end{enumerate}
 
 

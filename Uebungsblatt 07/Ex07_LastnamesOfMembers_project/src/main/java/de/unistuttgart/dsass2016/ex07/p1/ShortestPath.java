@@ -3,6 +3,14 @@ package de.unistuttgart.dsass2016.ex07.p1;
 import java.util.Iterator;
 import java.util.Stack;
 
+/**
+ * 
+ * @author 3133783 Wilhelm Buchmüller 
+ * @author 3149308 Daniel Wanner 
+ * @author 2736424 Artur Frenzen
+ *
+ */
+
 public class ShortestPath
   implements IShortestPath
 {
@@ -70,7 +78,7 @@ public class ShortestPath
     return this.distance[vertex] < Double.POSITIVE_INFINITY;
   }
   
-  public Iterator<IEdge> pathTo(int vertex)
+public Iterator<IEdge> pathTo(int vertex)
   {
     if (hasNegativeCycle()) {
       throw new IllegalStateException("Negative cycle found");
@@ -78,7 +86,8 @@ public class ShortestPath
     if (!existsPathTo(vertex)) {
       return null;
     }
-    Stack<IEdge> path = new Stack();
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	Stack<IEdge> path = new Stack();
     for (IEdge edge = this.backtrace[vertex]; edge != null; edge = this.backtrace[edge
           .getSource()]) {
       path.push(edge);

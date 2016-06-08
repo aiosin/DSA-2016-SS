@@ -15,7 +15,8 @@ hs_err_pid*
 #draft files
 *.draft
 
-#gedit files
+#gedit and libreoffice files
+*.docx#
 *.md~
 
 #LATEX FILES

@@ -134,7 +134,7 @@ Sommersemester 2016\\
 			\item Einfärben von F
 			\item Einfärben von E
 			\item Einfärben von A
-			\item Besucht von B
+			\item Besuch von B
 			\item Schritt (von B) zu A
 			\item Schritt zu E
 			\item Schritt zu G
@@ -158,7 +158,14 @@ Sommersemester 2016\\
 \aufgabe{Euler, Hamilton und kürzeste Wege}
 \begin{enumerate}
 	\item
-	\item
+	\begin{enumerate}
+		\item Ja. Ein Pfad heißt Euler`scher Weg, wenn jede Kante des Graphen genau einmal in seinem Pfad vorkommt: C, B, A, C, D, F, E, D, G, A, C
+		\item Nein, da in einem Euler`schen Kreis alle Knoten einen geraden Grad haben. Dieser Graph besitzt jedoch zwei Knoten die einen ungeraden Grad haben: E und C.
+		\item Ja. Ein Pfad heißt Hamilton`scher Weg, wenn er alle Knoten eines Graphen genau einmal durchläuft: C, B, A, G, D, F, E
+	\end{enumerate}
+	\item Der Bellman-Ford-Algorithmus.
+Begründung: Da er als einziger Algorithmus Wege mit negativen Kantengewichten erkennt. Hier vorhanden von e nach c (-1).
+
 \end{enumerate}
 % Ende des Dokuments
 \end{document}

@@ -33,6 +33,9 @@ Datenstrukturen und Algorithmen Uni Stuttgart SS 2016
 	
 ##Übungsblatt 6:
 	21/30 pts.
+	
+##Übungsblatt 7:
+	25/30 pts.
 
 ##Useful Resources:
 	https://www.desmos.com/

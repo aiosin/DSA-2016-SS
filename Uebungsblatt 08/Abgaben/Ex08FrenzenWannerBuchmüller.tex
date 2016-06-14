@@ -15,6 +15,7 @@
 \usepackage{tikz}
 \usepackage[inline]{enumitem}
 \usepackage{fancyhdr}
+%\usepackage{adjustbox}
 \pagestyle{fancy} 
 \fancyhf{}
 
@@ -44,14 +45,80 @@ Sommersemester 2016\\
 \begin{document}
 % Aufgabe 2
 \aufgabe{Dijkstra-Algorithmus}
-Platzhalter
+\begin{enumerate}
+\item  \text{}\\
+	
+\begin{tabular}{l*{6}{c}r}
+   Schritt    &         Kosten \\
+-         				& A & B & C & D & E  & F \\
+\hline
+Initialisierung   & 0 & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ \\
+1          & 0 & 3 & 8 & $\infty$ &  13 & $\infty$     \\
+2          & 0 & 3 & 8 & $\infty$ &  13 & 18  \\
+3			     & 0 & 3 & 8 & 10 &  13 & 18  \\
+4			     & 0 & 3 & 8 & 10 &  13 & 16  \\
+5			     & 0 & 3 & 8 & 10 &  12 & 16  \\
+\end{tabular}
+
+
+\item \text{}\\
+%TODO:DONE !
+		\begin{tikzpicture}
+		\begin{scope}[every node/.style={circle,thick,draw}]
+			\node (1) at (0,0) {A};
+			\node (2) at (-2,1) {B};
+			\node (3) at (0,3) {C};
+			\node (4) at (6,3) {D};
+			\node (5) at (6,0) {E};
+			\node (6) at (8,1) {F};
+		\end{scope}
+
+	\begin{scope}[>={stealth[black]},
+              every node/.style={fill=white,circle},
+              every edge/.style={draw=black,very thick}]
+              
+  \path (2) edge  node {$3$} (1);
+	\path (2) edge node {$5$} (3);    
+	\path (4) edge  node {$2$}(5);
+	\path (4) edge  node {$6$}(6);
+	\path (3) edge  node {$2$}(4);
+		
+    
+\end{scope}
+\end{tikzpicture}
+\end{enumerate}
+
 
 % Aufgabe 2
 \aufgabe{Delaunay-Triangulierung}
 % Teilaufgaben
 \begin{enumerate}
-	\item 
-	\item 
+	\item \text{}\\
+	
+	\includegraphics[scale=0.35]{ex08.03/2.png}%
+	
+	Dies ist eine initiale Triangulierung die mit dem "`Plane-Sweep"'-Verfahren erstellt wurde.
+	
+	\item
+	Aus der Triangulation aus Teilaufgabe a) soll jetzt eine Delaunay-Triangulation erstellt werden.
+	Zu Begin werden alle Kanten, welche die Delaunay Eigenschaft verletzen auf auf einen Stack geschoben, in diesem Fall rot markiert.
+	%\newpage	%TODO:rauskommentieren falls nicht mehr benötigt
+	\begin{itemize}
+		\item \text{}\\
+		\includegraphics[scale=0.45]{ex08.03/4.png}\newline
+		Hier sind die Kanten die die Delaunay-Eigenschaft verletzen rot markiert und bereit zur Abarbeitung.
+		
+		\item  \text{}\\
+		\includegraphics[scale=0.4]{ex08.03/5.png}\newline
+		In diesem Schritt wurde die Kante b entfernt und ein "`Edge-Flip"'-Schritt durchgeführt, und dadurch die Kante \textit{j} hinzugefügt.
+		Als nächstes müssen wir die Kante \(a_1\) abarbeiten, weil sie zum einen die Delaunay-Eigenschaft verletzt und zum anderen weil \textit{j} , \textit{\(a_1\)} schneidet und somit eine (gedachte) höhere Priorität im Stack erhält.
+		\item  \text{}\\
+		\includegraphics[scale=0.4]{ex08.03/6.png}\newline
+		Hier wurde die Kante \(a_1\) entfernt und die Kante a hinzugefügt. Die Kante \(b_1\) ist die bis jetzt noch die letzte Kante im Stack, wenn durch den "`Edge-Flip"' von \(b_1\) aber weitere Delaunay-Eigenschaften verletzt werden wächst dieser Stack wieder an.
+		\item  \text{}\\
+		\includegraphics[scale=0.4]{ex08.03/7.png}\newline
+		Da keine weiteren Verletzungen geschehen sind, ist unser Graph \textit{G} nun eine Delaunay-Triangulation
+	\end{itemize}
 \end{enumerate}
 
 
@@ -99,7 +166,7 @@ Platzhalter
 }
 
 	\end{verbatim}
-	\item Da es verschiedene BibTEX-repositories gibt, unter anderem auch eine von Google-Scholar und vom Springer-Verlag hat jede Platform eine eigene Style-Convention 
+	\item Da es verschiedene BibTEX-"'Repositories"' gibt, unter anderem auch eine von Google-Scholar und vom Springer-Verlag hat jede Platform eine eigene Style-Convention 
 \end{enumerate}
 % Ende des Dokuments
 \end{document}

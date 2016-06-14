@@ -1,61 +1,48 @@
+/*
+ * TODO: AUTORENTAGS NICHT VERGESSEN 
+ */
+ 
 package de.unistuttgart.dsass2016.ex08.p1;
 
+import de.unistuttgart.dsass2016.ex08.p1.IBinaryTreeNode;
 import java.awt.Point;
 
-public class BinaryTreeNode<T extends Comparable<T>> implements
-		IBinaryTreeNode<T> {
+public class BinaryTreeNode<T extends Comparable<T>>
+implements IBinaryTreeNode<T> {
+    private volatile T value = null;
+    private volatile IBinaryTreeNode<T> leftChild = null;
+    private volatile IBinaryTreeNode<T> rightChild = null;
+    private volatile Point position = null;
 
-	private volatile T value;
-	private volatile IBinaryTreeNode<T> leftChild;
-	private volatile IBinaryTreeNode<T> rightChild;
+    public void setValue(T val) {
+        this.value = val;
+    }
 
-	private volatile Point position;
+    public T getValue() {
+        return this.value;
+    }
 
-	public BinaryTreeNode() {
-		this.value = null;
-		this.leftChild = null;
-		this.rightChild = null;
-		this.position = null;
-	}
+    public void setLeftChild(IBinaryTreeNode<T> left) {
+        this.leftChild = left;
+    }
 
-	@Override
-	public void setValue(T val) {
-		this.value = val;
-	}
+    public IBinaryTreeNode<T> getLeftChild() {
+        return this.leftChild;
+    }
 
-	@Override
-	public T getValue() {
-		return this.value;
-	}
+    public void setRightChild(IBinaryTreeNode<T> right) {
+        this.rightChild = right;
+    }
 
-	@Override
-	public void setLeftChild(IBinaryTreeNode<T> left) {
-		this.leftChild = left;
-	}
+    public IBinaryTreeNode<T> getRightChild() {
+        return this.rightChild;
+    }
 
-	@Override
-	public IBinaryTreeNode<T> getLeftChild() {
-		return this.leftChild;
-	}
+    public Point getPosition() {
+        return this.position;
+    }
 
-	@Override
-	public void setRightChild(IBinaryTreeNode<T> right) {
-		this.rightChild = right;
-	}
-
-	@Override
-	public IBinaryTreeNode<T> getRightChild() {
-		return this.rightChild;
-	}
-
-	@Override
-	public Point getPosition() {
-		return this.position;
-	}
-
-	@Override
-	public void setPosition(Point p) {
-		this.position = p;
-	}
-
+    public void setPosition(Point p) {
+        this.position = p;
+    }
 }

@@ -1,5 +1,7 @@
 package de.unistuttgart.dsass2016.ex08.p1;
 
+import java.awt.Point;
+
 public interface IBinarySearchTree<T extends Comparable<T>> {
 
 	/**
@@ -28,7 +30,8 @@ public interface IBinarySearchTree<T extends Comparable<T>> {
 
 	/**
 	 * calculates the positions of the nodes for drawing
+	 * @return 
 	 */
-	public void calculatePositions();
+	public Point calculatePositions();
 
 }

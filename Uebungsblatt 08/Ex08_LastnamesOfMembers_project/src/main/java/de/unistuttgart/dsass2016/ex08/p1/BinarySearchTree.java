@@ -23,9 +23,9 @@ implements IBinarySearchTree<T> {
             newNode.setValue(t);
             return newNode;
         }
-        if (t.compareTo((T)node.getValue()) < 0) {
+        if (t.compareTo(node.getValue()) < 0) {
             node.setLeftChild(this.insert(node.getLeftChild(), t, lev + 1, node));
-        } else if (t.compareTo((T)node.getValue()) > 0) {
+        } else if (t.compareTo(node.getValue()) > 0) {
             node.setRightChild(this.insert(node.getRightChild(), t, lev + 1, node));
         }
         return node;

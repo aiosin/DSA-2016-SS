@@ -60,18 +60,11 @@ public class BinarySearchTree<T extends Comparable<T>> implements
 	}
 
 	@Override
-	public Point calculatePositions() {
-		return this.calculatePositions(this.root, -1, 0);
+	public void calculatePositions() {
+		// TODO calculate the position for each node in the tree
+		// - the position of a node on the x-axis is calculated by its position in the in-order traversal (first node has x = 0)
+		// - the position of a node on the y-axis is calculated by its level in the tree (root has y = 0)
 	}
 
-	private Point calculatePositions(IBinaryTreeNode<T> node, int offsetX,
-			int offsetY) {
-				return null;
-
-	       // TODO calculate the position for each node in the tree
-	       // - the position of a node on the x-axis is calculated by its position in the in-order traversal (first node has x = 0)
-	       // - the position of a node on the y-axis is calculated by its level in the tree (root has y = 0)
-
-	}
 
 }

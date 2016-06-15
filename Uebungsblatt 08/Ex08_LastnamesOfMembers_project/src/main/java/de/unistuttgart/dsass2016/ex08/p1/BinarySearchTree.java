@@ -1,6 +1,8 @@
 package de.unistuttgart.dsass2016.ex08.p1;
 
 import java.awt.Point;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchTree<T> {
 
@@ -62,40 +64,23 @@ public class BinarySearchTree<T extends Comparable<T>> implements IBinarySearchT
 		// - the position of a node on the y-axis is calculated by its level in
 		// the tree (root has y = 0)
 		
-		//setting up dummy point 
-		Point point = new Point(0, 0);
-
-		//getting firstNode which will be the base of the drawing
-		IBinaryTreeNode<T> firstNode = this.getRootNode();
-		int levels = 0;
-
-		while (true) {
-			// this going to return the first element in inorder-iteration
-			if (firstNode.getLeftChild() != null) {
-				firstNode = firstNode.getLeftChild();
-				levels += 1;
-			} else if (firstNode.getRightChild() != null) {
-				//the task says if no left but right child, add 1 level but treat set the parent at x0
-				levels += 1;
-			}else {
-				break;
-			}
-
-		}
-
-		IBinaryTreeNode<T> previousNode;
-		previousNode = this.getRootNode();
+		Queue<IBinaryTreeNode<T>> q = new LinkedList<IBinaryTreeNode<T>> ();
+		inorderPositionCalculation(this.root, 0, q);
 		
-		if (firstNode.getLeftChild() == null) {
-			Point p = new Point(point);
-			p.setLocation(p.getX(), p.getY()+2);
-			firstNode.setPosition(p);
-		}
 		
-		while (this != null) {
 
+	}
+	//thinking of a a fitting coment
+	//HAS to be called with depth > 1, else this is going to calculate
+	//also call this method with 
+	private void inorderPositionCalculation(IBinaryTreeNode<T> node, int depth, Queue<IBinaryTreeNode<T>>  q){
+		if (node != null) {
+			inorderPositionCalculation(node.getLeftChild(), depth+1,q);
+			node.setPosition(new Point(q.size(),depth));
+			q.add(node);
+			inorderPositionCalculation(node.getRightChild(), depth+1, q);
+			
 		}
-
 	}
 
 }

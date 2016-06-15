@@ -1,48 +1,61 @@
-/*
- * TODO: AUTORENTAGS NICHT VERGESSEN 
- */
- 
 package de.unistuttgart.dsass2016.ex08.p1;
 
-import de.unistuttgart.dsass2016.ex08.p1.IBinaryTreeNode;
 import java.awt.Point;
 
-public class BinaryTreeNode<T extends Comparable<T>>
-implements IBinaryTreeNode<T> {
-    private volatile T value = null;
-    private volatile IBinaryTreeNode<T> leftChild = null;
-    private volatile IBinaryTreeNode<T> rightChild = null;
-    private volatile Point position = null;
+public class BinaryTreeNode<T extends Comparable<T>> implements
+		IBinaryTreeNode<T> {
 
-    public void setValue(T val) {
-        this.value = val;
-    }
+	private volatile T value;
+	private volatile IBinaryTreeNode<T> leftChild;
+	private volatile IBinaryTreeNode<T> rightChild;
 
-    public T getValue() {
-        return this.value;
-    }
+	private volatile Point position;
 
-    public void setLeftChild(IBinaryTreeNode<T> left) {
-        this.leftChild = left;
-    }
+	public BinaryTreeNode() {
+		this.value = null;
+		this.leftChild = null;
+		this.rightChild = null;
+		this.position = null;
+	}
 
-    public IBinaryTreeNode<T> getLeftChild() {
-        return this.leftChild;
-    }
+	@Override
+	public void setValue(T val) {
+		this.value = val;
+	}
 
-    public void setRightChild(IBinaryTreeNode<T> right) {
-        this.rightChild = right;
-    }
+	@Override
+	public T getValue() {
+		return this.value;
+	}
 
-    public IBinaryTreeNode<T> getRightChild() {
-        return this.rightChild;
-    }
+	@Override
+	public void setLeftChild(IBinaryTreeNode<T> left) {
+		this.leftChild = left;
+	}
 
-    public Point getPosition() {
-        return this.position;
-    }
+	@Override
+	public IBinaryTreeNode<T> getLeftChild() {
+		return this.leftChild;
+	}
 
-    public void setPosition(Point p) {
-        this.position = p;
-    }
+	@Override
+	public void setRightChild(IBinaryTreeNode<T> right) {
+		this.rightChild = right;
+	}
+
+	@Override
+	public IBinaryTreeNode<T> getRightChild() {
+		return this.rightChild;
+	}
+
+	@Override
+	public Point getPosition() {
+		return this.position;
+	}
+
+	@Override
+	public void setPosition(Point p) {
+		this.position = p;
+	}
+
 }

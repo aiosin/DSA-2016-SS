@@ -1,0 +1,11 @@
+AD + 
+DF +
+CE +
+BE +
+AB +
+BC -
+EF -
+EG +
+FG -
+BD -
+DE -

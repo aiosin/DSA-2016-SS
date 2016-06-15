@@ -30,3 +30,9 @@ hs_err_pid*
 *.nfs*
 *.synctex.gz*
 *.out
+
+#annoying eclipse stuff
+*.classpath
+*.project
+*.prefs
+

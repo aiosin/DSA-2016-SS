@@ -1,0 +1,152 @@
+% LaTeX Template für Datenstrukturen und Algorithmen Abgaben
+% Autor: Sandro Speth
+% Bei Fragen: Sandro.Speth@studi.informatik.uni-stuttgart.de
+\documentclass[12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[german]{babel}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[a4paper,lmargin={2cm},rmargin={2cm},tmargin={3.5cm},bmargin = {2.5cm},headheight = {4cm}]{geometry}
+\usepackage{amsmath,amssymb,amstext}
+\usepackage{amsthm}
+\usepackage[lined,algonl,boxed]{algorithm2e}
+\usepackage{tikz}
+\usepackage[inline]{enumitem}
+\usepackage{fancyhdr}
+
+
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\renewcommand{\theenumi}{(\alph{enumi})}
+\renewcommand{\labelenumi}{\text{\theenumi}}
+
+\newcounter{sheetnr}
+\setcounter{sheetnr}{9} % Nummer des Übungsblattes
+
+\newcounter{exnum}
+\setcounter{exnum}{1} % Nummer der Aufgabe
+
+\newcommand{\aufgabe}[1]{\section*{Aufgabe \theexnum\stepcounter{exnum}: #1}} % Befehl für Aufgabentitel
+
+% Rechter Teil der Kopfzeile:
+% Namen und Matrikelnummern aller Bearbeiter
+\rhead{Wilhelm Buchm"uller(3133783)\\
+Artur Frenzen (2736424)\\
+Daniel Wanner (3149308)}
+
+% Linker Teil der Kopfzeile
+\lhead{Datenstrukturen \& Algorithmen\\
+Sommersemester 2016\\
+Uebungsblatt \thesheetnr}
+
+% Beginn des eigentlichen Dokuments
+\begin{document}
+% Aufgabe 2
+\aufgabe{KMP-Pr"afixtabelle}
+
+\begin{itemize}
+
+\item 
+Knuth-Morris-Pratt Pr"afixtabelle
+\begin{figure}[h]
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+Position k im Pattern            & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
+Pattern p{[}k{]}                 & d & u & m & d & i & d & u & m & b & u & m  \\ \hline
+L"angster pr"afix{[}k{]}; f{[}k{]} & 0 & 0 & 0 & 1 & 0 & 1 & 2 & 3 & 0 & 0 & 0  \\ \hline
+\end{tabular}
+\end{figure}
+
+\item 
+\begin{enumerate}
+\item
+Mismatch an index 4 \newline pr"afix ist 1 also starten wir bei d
+\begin{figure}[h]
+\begin{tabular}{llllllllllllllllllllllllll}
+\hline
+d & u & m & d & u & m & d & i & d & i & d & u & m & d & i & d & u & m & b & u & m & d & i & b & u & m \\ \hline
+  &   &   &   & x &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+d & u & m & d & i & d & u & m & b & u & m &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\ \hline
+\end{tabular}
+\end{figure}
+\item
+Hier haben wir Mismatches am ersten Index von Index 5 bis Index 7, keine Pr"afix Verschiebung, wir starten wie gewohnt bei d
+\begin{figure}[h]
+\begin{tabular}{llllllllllllllllllllllllll}
+\hline
+d & u & m & d & u & m & d & i & d & i & d & u & m & d & i & d & u & m & b & u & m & d & i & b & u & m \\ \hline
+  &   &   &   & x &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+  &   &   &   & d & u & m & d & i & d & u & m & b & u & m &   &   &   &   &   &   &   &   &   &   &   \\ \hline
+\end{tabular}
+
+\end{figure}
+
+\item Mismatch an Index 8 bei Pattern-Index 1 
+
+\begin{figure}[!h]
+\begin{tabular}{llllllllllllllllllllllllll}
+\hline
+d & u & m & d & u & m & d & i & d & i & d & u & m & d & i & d & u & m & b & u & m & d & i & b & u & m \\ \hline
+  &   &   &   &   &   &   & x  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+  &   &   &   &   &   & d & u & m & d & i & d & u & m & b & u & m &   &   &   &   &   &   &   &   &   \\ \hline
+\end{tabular}
+
+\end{figure}
+
+\item Mismatch an Index 10
+\begin{figure}[!h]
+\begin{tabular}{llllllllllllllllllllllllll}
+\hline
+d & u & m & d & u & m & d & i & d & i & d & u & m & d & i & d & u & m & b & u & m & d & i & b & u & m \\ \hline
+  &   &   &   &   &   &   &   &   & x &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+  &   &   &   &   &   &   &   &   & d & u & m & d & i & d & u & m & b & u & m &   &   &   &   &   &   \\ \hline
+\end{tabular}
+
+\end{figure}
+
+\item Patten gefunden
+\begin{figure}[!h]
+\begin{tabular}{llllllllllllllllllllllllll}
+\hline
+d & u & m & d & u & m & d & i & d & i & d & u & m & d & i & d & u & m & b & u & m & d & i & b & u & m \\ \hline
+  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+  &   &   &   &   &   &   &   &   &   & d & u & m & d & i & d & u & m & b & u & m &   &   &   &   &   \\ \hline
+\end{tabular}
+\end{figure}
+
+\end{enumerate}
+
+
+\end{itemize}
+
+% Aufgabe 2
+\aufgabe{Boyer-Moore}
+\paragraph{}\noindent\rule{8cm}{0.4pt}
+
+
+% Aufgabe 3
+\aufgabe{Regul"are Ausdr"ucke}
+\begin{itemize}
+\item \begin{enumerate}
+\item Ausschliesslich nach per Skript erlaubten Regeln\newline 
+\verb/(^.......a$)/ 
+
+\item Nach ''erweiterten''-Regeln \newline
+
+\verb/(^.{7}a$/
+\end{enumerate} 
+\item \verb/(^(Schnell|Fischer|Patroullien)(boot+)(e?)$)/
+\item \verb/(^.+)(Apfel|Birne)(.+$)/
+\item \verb/(^((Y.*|N.*)(a+)(y))|((Mua)(ha+))(.*)(s)$)/
+\end{itemize}
+
+
+
+
+
+% Ende des Dokuments
+\end{document}

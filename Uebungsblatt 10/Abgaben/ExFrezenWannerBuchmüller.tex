@@ -47,6 +47,7 @@ Ubungsblatt \thesheetnr}
 \begin{enumerate}
 \item \text{}\\ 
 \begin{figure}[!h]
+\centering
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
 \hline
   & $\epsilon$  & t & r & e & k & k & i & e & s \\ \hline
@@ -56,6 +57,7 @@ a & 2 & 2 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \hline
 r & 3 & 3 & 5 & 3 & 4 & 5 & 6 & 7 & 8 \\ \hline
 s & 4 & 4 & 3 & 3 & 4 & 5 & 6 & 7 & 7 \\ \hline
 \end{tabular}
+\caption{Die Levenshtein-Distanz-Tabelle zu trekkies und wars}
 \end{figure}
 \item Die Levenshtein-Distanz zwischen zwei Worten befindet sich immer in der untersten rechten Ecke.
 \end{enumerate}
@@ -63,19 +65,57 @@ s & 4 & 4 & 3 & 3 & 4 & 5 & 6 & 7 & 7 \\ \hline
 \aufgabe{Hashfunktionen}
 % Teilaufgaben
 \begin{enumerate}
-\item A
-\item B
-\item C
-\item D
+\item Das englische Alphabet hat nur 26 Buchstaben, d.h das englische Wort kann nur mit 26 Buchstaben anfangen, der Buchstabe des Wortanfangs ich auch nicht gleichverteilt. Man kann also nicht von den vollen 128 Werten von UTF-8 profitieren.
+Die Surjektivit"at ist gegeben, da max. 26 Buchstaben benutzt werden, und nicht 128. Auch die Gleichverteiltheit ist nicht gegeben, da die Worte mit Abstand am h"aufigsten mit T und am seltensten mit X beginnen.
+
+
+\item Es gibt 50 reservierte keywords in der Java Programmiersprache, 53 wenn man \verb|true|, \verb|false| und \verb|null| dazurechnet und 27 Operatoren, wenn man new und instanceof zu den keywords z"ahlt.
+Die Eigenschaft der Surjektivit"at ist gegeben es gibt keywords/Operatoren von L"ange 1 bis L"ange 6.
+Auch die Eigenschaft der Gleichverteiltheit ist gegeben. 
+
+
+\item Die Hashfunktion ist surjektiv, da jeder Student eine Gesamtpunktzahl hat - auch Studenten die abbrechen oder nichts abgeben erreichen rechnerisch 0 Gesamtpunkte. Da es eine Mindestpunktzahl (f"ur den Schein) von 60 \% werden sich alle Studenten anstrengen den Schein zu bestehen und demnach ist die Gleichverteiltheit entsprechend davon beeinflu"st
+
+
+
+\item Die Surjektivit"at ist gegeben, da auf alle Ziffern der Hashfunktion abgebildet wird.
+Die Gleichverteilheit ist auch gegeben, da von 0-\verb|INTEGER.MAX| alle Werte gleich verteilt werden.
 \end{enumerate}
+\newpage
 
 
 % Aufgabe 3
 \aufgabe{Hashing}
 
 \begin{enumerate}
-	\item PLATZHALTER
-	\item PLATZHALTER
+	\item \text{}\\
+	
+	\begin{figure}[!h]
+	\centering
+	\begin{tabular}{|l|l|lll}
+\cline{1-2}
+Index & Entry &                         &                         &                        \\ \cline{1-2}
+0     &       &                         &                         &                        \\ \cline{1-2}
+1     &       &                         &                         &                        \\ \cline{1-2}
+2     &       &                         &                         &                        \\ \hline
+3     & 16    & \multicolumn{1}{l|}{68} & \multicolumn{1}{l|}{94} & \multicolumn{1}{l|}{3} \\ \hline
+4     & 82    &                         &                         &                        \\ \cline{1-2}
+5     &       &                         &                         &                        \\ \cline{1-2}
+6     &       &                         &                         &                        \\ \cline{1-2}
+7     &       &                         &                         &                        \\ \cline{1-2}
+8     &       &                         &                         &                        \\ \cline{1-2}
+9     &       &                         &                         &                        \\ \cline{1-2}
+10    &       &                         &                         &                        \\ \cline{1-2}
+11    &       &                         &                         &                        \\ \cline{1-2}
+12    &       &                         &                         &                        \\ \cline{1-2}
+\end{tabular}
+\caption{Die offene Hashtabelle hat 3 Kollisionen an Index 3}
+	\end{figure}
+	
+	\item
+	\begin{figure}[!h]
+	
+	\end{figure}
 	\item PLATZHALTER
 	
 \end{enumerate}

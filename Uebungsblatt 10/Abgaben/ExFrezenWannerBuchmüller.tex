@@ -1,0 +1,87 @@
+% LaTeX Template für Datenstrukturen und Algorithmen Abgaben
+% Autor: Sandro Speth
+% Bei Fragen: Sandro.Speth@studi.informatik.uni-stuttgart.de
+\documentclass[12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[a4paper,lmargin={2cm},rmargin={2cm},tmargin={3.5cm},bmargin = {2.5cm},headheight = {4cm}]{geometry}
+\usepackage{amsmath,amssymb,amstext}
+\usepackage{amsthm}
+\usepackage[lined,algonl,boxed]{algorithm2e}
+\usepackage{tikz}
+\usepackage[inline]{enumitem}
+\usepackage{fancyhdr}
+\pagestyle{fancy} 
+\fancyhf{}
+
+\renewcommand{\theenumi}{(\alph{enumi})}
+\renewcommand{\labelenumi}{\text{\theenumi}}
+
+\newcounter{sheetnr}
+\setcounter{sheetnr}{09} % Nummer des Übungsblattes
+
+\newcounter{exnum}
+\setcounter{exnum}{1} % Nummer der Aufgabe
+
+\newcommand{\aufgabe}[1]{\section*{Aufgabe \theexnum\stepcounter{exnum}: #1}} % Befehl für Aufgabentitel
+
+% Rechter Teil der Kopfzeile:
+% Namen und Matrikelnummern aller Bearbeiter
+\rhead{Max Mustermann (1234567)\\
+Klaus Kleber (1234568)\\
+Melanie Marshmallow (1234569)}
+
+% Linker Teil der Kopfzeile
+\lhead{Datenstrukturen \& Algorithmen\\
+Sommersemester 2016\\
+Ubungsblatt \thesheetnr}
+
+% Beginn des eigentlichen Dokuments
+\begin{document}
+% Aufgabe 2
+\aufgabe{Textalgorithmen/Levenshtein-Distanz}
+\begin{enumerate}
+\item \text{}\\ 
+\begin{figure}[!h]
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+  & $\epsilon$  & t & r & e & k & k & i & e & s \\ \hline
+$\epsilon$  & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \hline
+w & 1 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \hline
+a & 2 & 2 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \hline
+r & 3 & 3 & 5 & 3 & 4 & 5 & 6 & 7 & 8 \\ \hline
+s & 4 & 4 & 3 & 3 & 4 & 5 & 6 & 7 & 7 \\ \hline
+\end{tabular}
+\end{figure}
+\item Die Levenshtein-Distanz zwischen zwei Worten befindet sich immer in der untersten rechten Ecke.
+\end{enumerate}
+% Aufgabe 2
+\aufgabe{Hashfunktionen}
+% Teilaufgaben
+\begin{enumerate}
+\item A
+\item B
+\item C
+\item D
+\end{enumerate}
+
+
+% Aufgabe 3
+\aufgabe{Hashing}
+
+\begin{enumerate}
+	\item PLATZHALTER
+	\item PLATZHALTER
+	\item PLATZHALTER
+	
+\end{enumerate}
+
+% Bildumgebung
+
+
+% Ende des Dokuments
+\end{document}

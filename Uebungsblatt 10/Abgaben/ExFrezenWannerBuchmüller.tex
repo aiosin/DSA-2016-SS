@@ -11,7 +11,7 @@
 \usepackage[a4paper,lmargin={2cm},rmargin={2cm},tmargin={3.5cm},bmargin = {2.5cm},headheight = {4cm}]{geometry}
 \usepackage{amsmath,amssymb,amstext}
 \usepackage{amsthm}
-\usepackage[lined,algonl,boxed]{algorithm2e}
+%\usepackage[lined,algonl,boxed]{algorithm2e}
 \usepackage{tikz}
 \usepackage[inline]{enumitem}
 \usepackage{fancyhdr}
@@ -31,9 +31,9 @@
 
 % Rechter Teil der Kopfzeile:
 % Namen und Matrikelnummern aller Bearbeiter
-\rhead{Max Mustermann (1234567)\\
-Klaus Kleber (1234568)\\
-Melanie Marshmallow (1234569)}
+\rhead{Wilhelm Buchmüller (3133783)\\
+Daniel Wanner (TODO)\\
+Artur Frenzen (TODO)}
 
 % Linker Teil der Kopfzeile
 \lhead{Datenstrukturen \& Algorithmen\\
@@ -74,7 +74,7 @@ Die Eigenschaft der Surjektivit"at ist gegeben es gibt keywords/Operatoren von L
 Auch die Eigenschaft der Gleichverteiltheit ist gegeben. 
 
 
-\item Die Hashfunktion ist surjektiv, da jeder Student eine Gesamtpunktzahl hat - auch Studenten die abbrechen oder nichts abgeben erreichen rechnerisch 0 Gesamtpunkte. Da es eine Mindestpunktzahl (f"ur den Schein) von 60 \% werden sich alle Studenten anstrengen den Schein zu bestehen und demnach ist die Gleichverteiltheit entsprechend davon beeinflu"st
+\item Die Hashfunktion ist nicht surjektiv, da nicht jeder Student der an der Vorlesung auch zwingend an der U"bung teilnimmt, auch ist es nicht sehr wahrscheinlich das jede Punktzahl von z.B. 1/X bis X/X einmal erreicht wird. Da es au"serdem eine Mindestpunktzahl (f"ur den Schein) von 60 \% gibt werden sich alle Studenten anstrengen den Schein zu bestehen und demnach ist die Gleichverteiltheit entsprechend davon beeinflu"st, also nicht erf"ullt.
 
 
 
@@ -135,12 +135,29 @@ Index & Entry \\ \hline
 	\caption{geschlossene Hashtabelle mit linearem Sondieren (keine Kollisionen)}
 	\end{figure}
 	\newpage
-	\item \text{}\\
+
+\item \text{}\\
 	\begin{figure}[!h]
 	\centering
-	\caption{aylmao}
+	\begin{tabular}{|l|l|}
+\hline
+Index & Entry \\ \hline
+0     &       \\ \hline
+1     &       \\ \hline
+2     &       \\ \hline
+3     & 16    \\ \hline
+4     & 82    \\ \hline
+5     & 68    \\ \hline
+6     &       \\ \hline
+7     & 94    \\ \hline
+8     &       \\ \hline
+9     & 3     \\ \hline
+10    &       \\ \hline
+11    &       \\ \hline
+12    &       \\ \hline
+\end{tabular}
+	\caption{geschlossene Hashtabelle mit quadriertem Sondieren (keine Kollisionen)}
 	\end{figure}
-	
 \end{enumerate}
 
 

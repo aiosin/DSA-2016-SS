@@ -15,7 +15,7 @@ public class Student implements Runnable {
 
 	@Override
 	public void run() {
-		// prewaiting before writing something accesing the
+		// prewaiting before writing something accessing the
 		try {
 			Thread.sleep(ThreadLocalRandom.current().nextLong(1000));
 		} catch (InterruptedException e) {
@@ -39,6 +39,7 @@ public class Student implements Runnable {
 	}
 
 	public void startWork() {
-		run();
+		Thread t = new Thread(this);
+		t.start();
 	}
 }

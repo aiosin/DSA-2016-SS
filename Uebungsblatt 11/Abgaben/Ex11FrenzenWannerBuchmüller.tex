@@ -1,0 +1,75 @@
+% LaTeX Template für Datenstrukturen und Algorithmen Abgaben
+% Autor: Sandro Speth
+% Bei Fragen: Sandro.Speth@studi.informatik.uni-stuttgart.de
+\documentclass[12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[a4paper,lmargin={2cm},rmargin={2cm},tmargin={3.5cm},bmargin = {2.5cm},headheight = {4cm}]{geometry}
+\usepackage{amsmath,amssymb,amstext}
+\usepackage{amsthm}
+\usepackage[lined,algonl,boxed]{algorithm2e}
+\usepackage{tikz}
+\usepackage[inline]{enumitem}
+\usepackage{fancyhdr}
+\pagestyle{fancy} 
+\fancyhf{}
+
+\renewcommand{\theenumi}{(\alph{enumi})}
+\renewcommand{\labelenumi}{\text{\theenumi}}
+
+\newcounter{sheetnr}
+\setcounter{sheetnr}{09} % Nummer des Übungsblattes
+
+\newcounter{exnum}
+\setcounter{exnum}{1} % Nummer der Aufgabe
+
+\newcommand{\aufgabe}[1]{\section*{Aufgabe \theexnum\stepcounter{exnum}: #1}} % Befehl für Aufgabentitel
+
+% Rechter Teil der Kopfzeile:
+% Namen und Matrikelnummern aller Bearbeiter
+\rhead{ Wilhelm Buchmüller  (3133783)\\
+Daniel Wanner ()\\
+Melanie Marshmallow (1234569)}
+
+% Linker Teil der Kopfzeile
+\lhead{Datenstrukturen \& Algorithmen\\
+Sommersemester 2016\\
+Übungsblatt \thesheetnr}
+
+% Beginn des eigentlichen Dokuments
+\begin{document}
+% Aufgabe 2
+\aufgabe{Petrinetze}
+-------
+% Aufgabe 2
+\aufgabe{Das Raucherproblem}
+\begin{itemize}
+	\item -
+	\item Es ensteht eine Art "`Lock"' zwischen Raucher 1 und Raucher 2. Der dritte Raucher kommt nie zum Rauchen da die erstem beiden Raucher sich die Zutaten immer wegschnappen.
+
+	\item Man könnte praktisch eine Art Priority-Queue verwenden, oder ein zufälligen Raucher wählen.
+	
+	\
+	
+\end{itemize}
+
+
+
+% Aufgabe 3
+\aufgabe{Regular Expresssions}
+
+\begin{enumerate}
+	\item Impl in Java
+	\item -
+
+\end{enumerate}
+
+% Bildumgebung
+
+
+% Ende des Dokuments
+\end{document}

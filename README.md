@@ -1,15 +1,6 @@
 # DSA-2016-SS
 Datenstrukturen und Algorithmen Uni Stuttgart SS 2016
 
-###Autorentags für copy-paste:
-
-	/**
- 	 * 
- 	 * @author 3133783 Wilhelm Buchmüller 
- 	 * @author 3149308 Daniel Wanner 
- 	 * @author 2736424 Artur Frenzen
- 	 *
- 	 */
 
 **************
 
@@ -47,7 +38,7 @@ Datenstrukturen und Algorithmen Uni Stuttgart SS 2016
 	22/30 pts.
 
 ##Übungsblatt 11:
-	X/X pts.
+	3/30 pts.
 	
 ##Useful Resources:
 	https://www.desmos.com/
